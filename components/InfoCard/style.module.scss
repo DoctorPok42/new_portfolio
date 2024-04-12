@@ -1,0 +1,21 @@
+.InfoCard_container {
+  width: 14em;
+  height: 15em;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-family: var(--font-family);
+  }
+
+  .title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+  }
+}
