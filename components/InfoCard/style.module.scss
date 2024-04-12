@@ -1,5 +1,5 @@
 .InfoCard_container {
-  width: 14em;
+  width: 35%;
   height: 15em;
   border-radius: 22px;
   display: flex;
@@ -8,13 +8,13 @@
   align-items: center;
 
   .value {
-    font-size: 3.5rem;
+    font-size: 3.5vw;
     font-weight: 900;
     font-family: var(--font-family);
   }
 
   .title {
-    font-size: 1.3rem;
+    font-size: 1.3vw;
     font-weight: 700;
     font-family: var(--font-family);
   }
