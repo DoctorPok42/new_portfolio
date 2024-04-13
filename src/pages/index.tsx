@@ -1,10 +1,11 @@
 import Head from "next/head";
-import { InfoCard, MainBox, MediaBox, NameBox } from "../../components";
+import { InfoCard, LargeBox, MainBox, MapBox, MediaBox, NameBox } from "../../components";
 import { faLinkedinIn, faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 export default function Home() {
+const Home = (props: { map_key: string }) => {
   return (
     <>
       <Head>
@@ -38,6 +39,7 @@ export default function Home() {
 
                 <div className="otherInfos">
                   <NameBox title="Name" value="Rémi Mazat" />
+                  <MapBox map_key={props.map_key}/>
                   <MediaBox
                     icons={[
                       { icon: faLinkedinIn, link: "https://www.linkedin.com/in/remi-mazat/", backgroundColor: "#0077B5" },
@@ -55,4 +57,16 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export default Home;
+
+export const getServerSideProps = async () => {
+  const map_key = process.env.MAP_BOX_API_KEY;
+
+  return {
+    props: {
+      map_key,
+    }
+  }
 }
