@@ -15,7 +15,7 @@
   --yellow: #ffbf3c;
   --red: #fe6d79;
   --purple: #8325fd;
-  --gray: #a4a3a4;
+  --gray: #999899;
 }
 
 * {
@@ -53,10 +53,44 @@ a {
     flex-direction: column;
     gap: 1em;
 
-    .profil {
+    .head {
       height: 60%;
       display: flex;
       gap: 1em;
+
+      .partOne,
+      .partTwo {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+      }
+
+      .partTwo {
+        .profil {
+          width: 100%;
+          height: calc(100% - 6em);
+          display: flex;
+          border-radius: var(--border-radius);
+          gap: 1em;
+
+          .profilPicture {
+            width: calc(52% - 0.5em);
+            height: 100%;
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+          }
+
+          .otherInfos {
+            width: calc(50% - 0.5em);
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+          }
+        }
+      }
     }
 
     .about {
