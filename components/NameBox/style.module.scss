@@ -1,0 +1,25 @@
+.NameBox_container {
+  width: 100%;
+  padding: 0 2em;
+  height: 5em;
+  background-color: var(--box);
+  border-radius: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+
+  .NameBox_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+    color: var(--gray);
+  }
+
+  .NameBox_value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+    color: var(--text-white);
+  }
+}

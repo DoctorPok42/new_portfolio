@@ -1,0 +1,28 @@
+.MediaBox_container {
+  width: 100%;
+  height: 5em;
+  padding: 0 0.5em;
+  border-radius: 22px;
+  background-color: var(--box);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1em;
+
+  .icon {
+    width: 4.3em;
+    height: 4.3em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+
+    svg {
+      width: 50%;
+      height: 50%;
+      fill: var(--text-white);
+    }
+  }
+}
