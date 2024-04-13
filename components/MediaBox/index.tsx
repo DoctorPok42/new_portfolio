@@ -17,13 +17,14 @@ const MediaBox = ({
     <div className={styles.MediaBox_container}>
       {icons.map((icon, index) => (
         <div
-          key={index}
+          key={index + icon.link}
+          role='feed'
           className={styles.icon}
           onClick={() => window.open(icon.link, '_blank')}
           onMouseEnter={() => setIsHovered(index)}
           onMouseLeave={() => setIsHovered(-1)}
           style={{
-            backgroundColor: isHovered === index ? icon.backgroundColor : index === 0 ? icon.backgroundColor : 'rgba(0, 0, 0, 0.2)',
+            backgroundColor: (isHovered === index || index === 0) ? icon.backgroundColor : 'rgba(0, 0, 0, 0.2)',
           }}
         >
           <FontAwesomeIcon icon={icon.icon} />
