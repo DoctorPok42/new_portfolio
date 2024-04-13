@@ -17,6 +17,7 @@ const MediaBox = ({
     <div className={styles.MediaBox_container}>
       {icons.map((icon, index) => (
         <div
+          onKeyUp={() => {}}
           key={index + icon.link}
           role='feed'
           className={styles.icon}
