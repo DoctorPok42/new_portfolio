@@ -4,13 +4,12 @@ import { faLinkedinIn, faGithub, faDiscord } from '@fortawesome/free-brands-svg-
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
-export default function Home() {
 const Home = (props: { map_key: string }) => {
   return (
     <>
       <Head>
-        <title>Rémi Mazat</title>
-        <meta name="description" content="Rémi Mazat's personal website" />
+        <title>Rémi M</title>
+        <meta name="description" content="Rémi M's personal website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -34,11 +33,11 @@ const Home = (props: { map_key: string }) => {
 
               <div className="profil">
                 <div className="profilPicture">
-                  <Image src="/profil.png" alt="profil" fill />
+                  <Image src="/profil.png" alt="profil" fill sizes="526px" />
                 </div>
 
                 <div className="otherInfos">
-                  <NameBox title="Name" value="Rémi Mazat" />
+                  <NameBox title="Name" value="Rémi M" />
                   <MapBox map_key={props.map_key}/>
                   <MediaBox
                     icons={[
@@ -52,7 +51,14 @@ const Home = (props: { map_key: string }) => {
               </div>
             </div>
           </div>
-          <div className="about"></div>
+          <div className="about">
+            <LargeBox header={{ title: "Projects", subtitle: "See all" }} canExpand size="large" />
+            <LargeBox header={{ title: "About Me", subtitle: "Who am I?" }}>
+              <h3>
+                I&apos;m Rémi, a web developer based in France. I have been working in the web development industry for over 6 years. I have worked on a wide range of projects, from small websites to large web applications. I am passionate about creating beautiful and functional websites that help businesses grow. I am always looking for new challenges and opportunities to learn and grow as a developer.
+              </h3>
+            </LargeBox>
+          </div>
         </div>
       </main>
     </>
