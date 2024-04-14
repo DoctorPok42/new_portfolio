@@ -19,6 +19,14 @@ const InfoCard = ({
     red: "var(--red)",
   };
 
+  const putRightDate = (date: string) => {
+    const dateToCompare = new Date(date);
+    const dateNow = new Date();
+    const diff = dateNow.getTime() - dateToCompare.getTime();
+    const diffInYears = diff / (1000 * 3600 * 24 * 365.25);
+    return Math.floor(diffInYears).toString() + "+";
+  }
+
   return (
     <div className={styles.InfoCard_container} style={{
       backgroundColor: corespondingColor[color],
@@ -29,7 +37,9 @@ const InfoCard = ({
           color: color === "yellow" ? "black" : "white",
         }}
       >
-        {value}
+        {
+          title === "Years Experience" ? putRightDate(value) : value
+        }
       </div>
 
       <div
