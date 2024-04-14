@@ -35,15 +35,31 @@
 
   .children {
     width: 90%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     gap: 1em;
     overflow-y: auto;
+    position: relative;
 
     h3 {
       font-size: 1.3vw;
       font-weight: 500;
       color: var(--gray);
+    }
+
+    .projects {
+      width: 100%;
+      display: flex;
+      gap: 1em;
+
+      .project {
+        width: calc(2% - 0.5em);
+        height: 100%;
+        position: relative;
+        border-radius: 22px;
+        overflow: hidden;
+      }
     }
   }
 }
