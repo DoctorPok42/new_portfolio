@@ -21,6 +21,29 @@
   ],
   "pseudo": "DoctorPok",
   "imgUrl": "/profil.png",
+  "projects" : [
+    {
+      "title": "Monitor",
+      "imgs": ["/projects/monitor/0.png"],
+      "logo": "/projects/monitor/logo.png",
+      "description": "This is a monitoring project for your server! It will help you to keep an eye on your server and get notified when something goes wrong. It will show you the CPU, RAM, and disk usage of your server. You can also set up alerts to get notified when something goes wrong.",
+      "link": "https://github.com/DoctorPok42/Monitor"
+    },
+    {
+      "title": "Cloud",
+      "imgs": ["/projects/cloud/0.png"],
+      "logo": "/projects/cloud/logo.png",
+      "description": "This is a cloud storage project! It will help you to store your files in the cloud. You can upload, download, and delete files. You can also create folders.",
+      "link": "https://github.com/DoctorPok42/Cloud"
+    },
+    {
+      "title": "Covid",
+      "imgs": ["/projects/covid/0.png"],
+      "logo": "/projects/covid/logo.png",
+      "description": "This is a Covid-19 tracker project! It will help you to keep track of the Covid-19 cases in your country. It will show you the total cases, total deaths, and total recovered cases. You can also see the cases by country.",
+      "link": "covid.doctorpok.io"
+    }
+  ],
   "about": {
     "subtitle": "Who am I?",
     "content": "I'm Rémi, a web developer based in France. I have been working in the web development industry for over 6 years. I have worked on a wide range of projects, from small websites to large web applications. I am passionate about creating beautiful and functional websites that help businesses grow. I am always looking for new challenges and opportunities to learn and grow as a developer."
