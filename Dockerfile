@@ -15,7 +15,7 @@ COPY src/ ./src/
 COPY public ./public/
 COPY components ./components/
 COPY tsconfig.json .
-COPY next.config.js .
+COPY next.config.mjs .
 
 RUN npm run build --legacy-peer-deps
 

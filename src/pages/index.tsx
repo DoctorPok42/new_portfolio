@@ -3,7 +3,7 @@ import { InfoCard, LargeBox, MainBox, MapBox, MediaBox, NameBox } from "../../co
 import { faLinkedinIn, faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import config from "../../config.json";
+import config from "@/../config.json";
 
 const Home = (props: { map_key: string }) => {
   return (
