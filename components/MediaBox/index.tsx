@@ -25,7 +25,7 @@ const MediaBox = ({
           onMouseEnter={() => setIsHovered(index)}
           onMouseLeave={() => setIsHovered(-1)}
           style={{
-            backgroundColor: (isHovered === index || index === 0) ? icon.backgroundColor : 'rgba(0, 0, 0, 0.2)',
+            backgroundColor: (isHovered === index || index === 0) ? icon.backgroundColor : 'rgba(155, 155, 155, 0.1)',
           }}
         >
           <FontAwesomeIcon icon={icon.icon} />
