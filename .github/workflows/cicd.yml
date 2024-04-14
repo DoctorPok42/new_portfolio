@@ -30,7 +30,7 @@ jobs:
 
       - name: 🛠️ Build Docker images
         run: |
-          docker compose -f docker-compose.yml build
+          docker build -t whatsup_portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }}
 
 
   build_docker_images:
