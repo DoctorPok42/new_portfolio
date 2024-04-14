@@ -53,7 +53,16 @@ const Home = (props: { map_key: string }) => {
             </div>
           </div>
           <div className="about">
-            <LargeBox header={{ title: "Projects", subtitle: "See all" }} canExpand size="large" />
+            <LargeBox header={{ title: "Projects", subtitle: "See all" }} canExpand size="large">
+              <div className="projects">
+                {config.projects.map((project, index) => (
+                  <div key={index} className="project">
+                    <Image src={project.imgs[0]} alt={project.title} fill sizes="2048px" />
+                    <h2>Read More</h2>
+                  </div>
+                ))}
+              </div>
+            </LargeBox>
             <LargeBox header={{ title: "About Me", subtitle: config.about.subtitle }}>
               <h3>
                 {config.about.content}
