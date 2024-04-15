@@ -30,7 +30,7 @@ jobs:
 
       - name: 🛠️ Build Docker images
         run: |
-          docker build -t whatsup_portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }}
+          docker build -t portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }}
 
 
   build_docker_images:
@@ -53,7 +53,7 @@ jobs:
 
       - name: 🛠️ Build Docker images
         run: |
-          docker build -t whatsup_portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }}
+          docker build -t portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }}
 
   push_docker_images:
     name: 📡 Push Docker images to Docker Hub
@@ -64,7 +64,7 @@ jobs:
     steps:
       - run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker tag whatsup_portfolio:latest ${{ secrets.DOCKER_USERNAME }}/whatsup:portfolio
+          docker tag portfolio:latest ${{ secrets.DOCKER_USERNAME }}/whatsup:portfolio
           docker push ${{ secrets.DOCKER_USERNAME }}/whatsup:frontend
 
   deploy:

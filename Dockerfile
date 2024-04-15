@@ -14,12 +14,13 @@ RUN npm install --ignore-scripts --legacy-peer-deps
 COPY src/ ./src/
 COPY public ./public/
 COPY components ./components/
+COPY config.json .
 COPY tsconfig.json .
 COPY next.config.mjs .
 
 RUN npm run build --legacy-peer-deps
 
-EXPOSE 6000
+EXPOSE 9000
 
 CMD ["npm", "run", "start"]
 
