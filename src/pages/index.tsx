@@ -3,7 +3,7 @@ import { InfoCard, LargeBox, MainBox, MapBox, MediaBox, NameBox } from "../../co
 import { faLinkedinIn, faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import config from "../../config.json";
+import config from "@/../config.json";
 
 const Home = (props: { map_key: string }) => {
   return (
@@ -12,7 +12,19 @@ const Home = (props: { map_key: string }) => {
         <title>{config.name}</title>
         <meta name="description" content={`${config.name}'s personal website`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#00c39a" />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:url" content="https://doctorpok.io" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={config.name} />
+        <meta property="og:description" content={`${config.name}'s personal website`} />
+        <meta property="og:image" content="https://doctorpok.io/brand.png" />
+
+        <meta property="twitter:title" content={config.name} />
+        <meta property="twitter:description" content={`${config.name}'s personal website`} />
+        <meta property="twitter:image:src" content="https://doctorpok.io/brand.png" />
+        <meta property="twitter:card" content="summary_large_image" />
       </Head>
       <main className="container">
 

@@ -1,0 +1,13 @@
+services:
+  portfolio:
+    image: doctorpok/whatsup:portfolio
+    container_name: portfolio
+    restart: always
+    ports:
+      - "9000:9000"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
