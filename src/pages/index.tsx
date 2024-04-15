@@ -15,7 +15,7 @@ const Home = (props: { map_key: string }) => {
         <meta name="theme-color" content="#00c39a" />
         <link rel="icon" href="/favicon.ico" />
 
-        <meta property="og:url" content="http://doctorpok.io" />
+        <meta property="og:url" content="https://doctorpok.io" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={config.name} />
         <meta property="og:description" content={`${config.name}'s personal website`} />
