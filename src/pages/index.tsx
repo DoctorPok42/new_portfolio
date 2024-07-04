@@ -80,7 +80,7 @@ const Home = (props: { map_key: string }) => {
               <div className="projects">
                 {config.projects.map((project, index) => {
                   if (index > 2) return;
-                  return <div key={index} className="project" onClick={() => handleSelectedProject(index)}>
+                  return <div key={project.title + index} className="project" onClick={() => handleSelectedProject(index)} onKeyDown={() => 0} role="button" tabIndex={1}>
                     <Image src={project.imgs[0]} alt={project.title} fill sizes="2048px" />
                     <h2>Read More</h2>
                   </div>

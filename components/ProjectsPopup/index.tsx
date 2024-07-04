@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAt, faClose, faExternalLink, faLinkSlash } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { useClickAway } from '@uidotdev/usehooks';
 
 import styles from './style.module.scss';
@@ -40,7 +40,7 @@ const ProjectsPopup = ({
 
         <div className={styles.projects}>
           {projects.map((project, index) => (
-            <div key={index} className={styles.project}>
+            <div key={project.title} className={styles.project}>
               <div className={styles.project_img}>
                 <img className={styles.bigimg} src={project.imgs[0]} alt="project" />
 
@@ -54,7 +54,7 @@ const ProjectsPopup = ({
                 <p>{project.description}</p>
                 {project.tags && <p className={styles.project_tags}>
                   {project.tags?.map((tag, index) => (
-                    <span key={index} className={styles.tag}>#{tag}</span>
+                    <span key={tag + index} className={styles.tag}>#{tag}</span>
                   ))}
                 </p>}
 
