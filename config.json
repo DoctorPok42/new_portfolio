@@ -2,46 +2,69 @@
   "name": "Rémi M",
   "slogan": "Bringing your ideas to life through web dev",
   "contactButton": "Contact me",
+  "mail": "mazatremi@gmail.com",
   "infoCard": [
     {
       "title": "Years Experience",
       "value": "2018",
-      "color": "green"
+      "color": "#00c39a"
     },
     {
       "title": "Handled Project",
       "value": "60+",
-      "color": "yellow"
+      "color": "#ffbf3c"
     },
     {
       "title": "Strength",
       "value": "Front",
-      "color": "red"
+      "color": "#fe6d79"
     }
   ],
   "pseudo": "DoctorPok",
   "imgUrl": "/profil.png",
   "projects" : [
     {
-      "title": "Monitor",
-      "imgs": ["/projects/monitor/0.png"],
-      "logo": "/projects/monitor/logo.png",
-      "description": "This is a monitoring project for your server! It will help you to keep an eye on your server and get notified when something goes wrong. It will show you the CPU, RAM, and disk usage of your server. You can also set up alerts to get notified when something goes wrong.",
-      "link": "https://github.com/DoctorPok42/Monitor"
+      "title": "What's Up",
+      "imgs": ["/projects/whatsup/0.png"],
+      "logo": "/projects/whatsup/logo.png",
+      "description": "This is a WhatsApp clone built using Next.js, MongoDB, and Socket.io. It is a simple chat application that allows users to send and receive encrypted messages in real-time.",
+      "link": "https://whatsup.doctorpok.io",
+      "github": "https://github.com/DoctorPok42/WhatsUp",
+      "tags": ["Next.js", "MongoDB", "Socket.io", "Twilio", "Real-Time", "WhatsApp-Clone"]
+    },
+    {
+      "title": "FastDrop",
+      "imgs": ["/projects/fastdrop/0.png"],
+      "logo": "/projects/fastdrop/logo.png",
+      "description": "FastDrop is a web application that allows users to easily transfer files between devices. It uses a peer-to-peer connection, so no files are ever stored on a server. This makes it a secure and private way to share files.",
+      "link": "https://fastdrop.doctorpok.io",
+      "github": "https://github.com/DoctorPok42/FastDrop",
+      "tags": ["Next.js", "Socket.io", "File-Sharing", "AirDrop-Clone"]
     },
     {
       "title": "Cloud",
       "imgs": ["/projects/cloud/0.png"],
       "logo": "/projects/cloud/logo.png",
       "description": "This is a cloud storage project! It will help you to store your files in the cloud. You can upload, download, and delete files. You can also create folders.",
-      "link": "https://github.com/DoctorPok42/Cloud"
+      "github": "https://github.com/DoctorPok42/CLoud",
+      "tags": ["Next.js", "SSH2", "File-System", "Google-Drive-Clone"]
+    },
+    {
+      "title": "Monitor",
+      "imgs": ["/projects/monitor/0.png"],
+      "logo": "/projects/monitor/logo.png",
+      "description": "This is a monitoring project for your server! It will help you to keep an eye on your server and get notified when something goes wrong. It will show you the CPU, RAM, and disk usage of your server. You can also set up alerts to get notified when something goes wrong.",
+      "github": "https://github.com/DoctorPok42/Monitor",
+      "tags": ["Next.js", "Socket.io", "Discord-Bot", "ApexCharts"]
     },
     {
       "title": "Covid",
       "imgs": ["/projects/covid/0.png"],
       "logo": "/projects/covid/logo.png",
       "description": "This is a Covid-19 tracker project! It will help you to keep track of the Covid-19 cases in your country. It will show you the total cases, total deaths, and total recovered cases. You can also see the cases by country.",
-      "link": "covid.doctorpok.io"
+      "link": "https://covid.doctorpok.io",
+      "github": "https://github.com/DoctorPok42/Covid",
+      "tags": ["Next.js", "ApexCharts"]
     }
   ],
   "about": {

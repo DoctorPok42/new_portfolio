@@ -7,19 +7,24 @@ interface MainBoxProps {
   title: string;
   buttonLabel: string;
   children: React.ReactNode;
+  mail: string;
 }
 
 const MainBox = ({
   title,
   buttonLabel,
   children,
+  mail,
 }: MainBoxProps) => {
   return (
     <div className={styles.MainBox_container}>
       <div className={styles.text}>
         <div className={styles.content}>
           <h1>{title}</h1>
-          <button>{buttonLabel} <Emoji unified='1f44b' /></button>
+          <a href={`mailto:${mail}`}>
+            {buttonLabel}
+            <Emoji unified='1f44b' />
+          </a>
         </div>
       </div>
 

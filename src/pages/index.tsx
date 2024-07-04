@@ -1,11 +1,20 @@
+import React, { useState } from "react";
 import Head from "next/head";
-import { InfoCard, LargeBox, MainBox, MapBox, MediaBox, NameBox } from "../../components";
+import { InfoCard, LargeBox, MainBox, MapBox, MediaBox, NameBox, ProjectsPopup } from "../../components";
 import { faLinkedinIn, faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import config from "@/../config.json";
 
 const Home = (props: { map_key: string }) => {
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
+  const handleSelectedProject = (index: number) => {
+    setSelectedProject(index);
+    setIsExpanded(true);
+  }
+
   return (
     <>
       <Head>
@@ -34,6 +43,7 @@ const Home = (props: { map_key: string }) => {
               <MainBox
                 title={config.slogan}
                 buttonLabel={config.contactButton}
+                mail={config.mail}
               >
                 {config.infoCard.map((card, index) => (
                   <InfoCard key={index} title={card.title} value={card.value} color={card.color as "green" | "yellow" | "red"} />
@@ -56,7 +66,7 @@ const Home = (props: { map_key: string }) => {
                     icons={[
                       { icon: faLinkedinIn, link: "https://www.linkedin.com/in/remi-mazat/", backgroundColor: "#0077B5" },
                       { icon: faGithub, link: "https://github.com/DoctorPok42", backgroundColor: "#333" },
-                      { icon: faAt, link: "mailto:mazatremi@gmail.com", backgroundColor: "#D14836" },
+                      { icon: faAt, link: `mailto:${config.mail}`, backgroundColor: "#D14836" },
                       { icon: faDiscord, link: "https://discord.com/users/492386299190444034", backgroundColor: "#5865F2" },
                     ]}
                   />
@@ -64,23 +74,28 @@ const Home = (props: { map_key: string }) => {
               </div>
             </div>
           </div>
+
           <div className="about">
-            <LargeBox header={{ title: "Projects", subtitle: "See all" }} canExpand size="large">
+            <LargeBox header={{ title: "Projects", subtitle: "See all" }} canExpand size="large" setIsExpanded={setIsExpanded}>
               <div className="projects">
-                {config.projects.map((project, index) => (
-                  <div key={index} className="project">
+                {config.projects.map((project, index) => {
+                  if (index > 2) return;
+                  return <div key={project.title + index} className="project" onClick={() => handleSelectedProject(index)} onKeyDown={() => 0} role="contentinfo">
                     <Image src={project.imgs[0]} alt={project.title} fill sizes="2048px" />
                     <h2>Read More</h2>
                   </div>
-                ))}
+                })}
               </div>
             </LargeBox>
+
             <LargeBox header={{ title: "About Me", subtitle: config.about.subtitle }}>
               <h3>
                 {config.about.content}
               </h3>
             </LargeBox>
           </div>
+
+          {isExpanded && <ProjectsPopup projects={config.projects} setIsExpanded={setIsExpanded} selectedProject={selectedProject} />}
         </div>
       </main>
     </>

@@ -29,7 +29,7 @@
         text-transform: capitalize;
       }
 
-      button {
+      a {
         position: absolute;
         right: 0;
         bottom: 0;
@@ -50,7 +50,7 @@
         transition: var(--transition);
       }
 
-      button:hover {
+      a:hover {
         border-color: var(--box);
         box-shadow: 0 0 0 3px var(--purple);
       }

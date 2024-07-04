@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './style.module.scss';
 
@@ -10,6 +10,7 @@ interface LargeBoxProps {
   size?: 'medium' | 'large';
   canExpand?: boolean;
   children?: React.ReactNode;
+  setIsExpanded? (isExpanded: boolean): void;
 }
 
 const LargeBox = ({
@@ -17,9 +18,8 @@ const LargeBox = ({
   size = 'medium',
   canExpand,
   children,
+  setIsExpanded,
 }: LargeBoxProps) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
-
   return (
     <div className={styles.LargeBox_container} style={{ width: size === 'medium' ? "40%" : "60%" }}>
       <div className={styles.header}>
@@ -27,13 +27,13 @@ const LargeBox = ({
         <h2
           onKeyUp={() => void 0}
           id={canExpand ? styles.expand : undefined}
-          onClick={() => canExpand && setIsExpanded(!isExpanded)}
+          onClick={() => canExpand && setIsExpanded?.(true)}
         >
           {header.subtitle}
         </h2>
       </div>
 
-      <div className={styles.children} style={{ display: isExpanded ? "none" : "" }}>
+      <div className={styles.children}>
         {children}
       </div>
     </div>
