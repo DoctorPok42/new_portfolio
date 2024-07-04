@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import styles from './style.module.scss';
 
 interface InfoCardProps {
   title: string;
   value: string;
-  color: "green" | "yellow" | "red";
+  color: CSSProperties["backgroundColor"];
 }
 
 const InfoCard = ({
@@ -13,12 +13,6 @@ const InfoCard = ({
   value,
   color,
 }: InfoCardProps) => {
-  const corespondingColor = {
-    green: "var(--green)",
-    yellow: "var(--yellow)",
-    red: "var(--red)",
-  };
-
   const putRightDate = (date: string) => {
     const dateToCompare = new Date(date);
     const dateNow = new Date();
@@ -29,7 +23,7 @@ const InfoCard = ({
 
   return (
     <div className={styles.InfoCard_container} style={{
-      backgroundColor: corespondingColor[color],
+      backgroundColor: color,
     }}>
       <div
         className={styles.value}
