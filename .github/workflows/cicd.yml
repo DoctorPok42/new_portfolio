@@ -16,20 +16,16 @@ jobs:
     if: github.event_name == 'pull_request'
 
     steps:
-      - name: 💾 Cache Dependencies
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: 👀 Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: 🔼 Set up Docker Build
-        uses: docker/setup-buildx-action@v1
+      - uses: docker/setup-buildx-action@v1
 
-      - name: 🛠️ Build Docker images
-        run: |
+      - run: |
           docker build -t portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }}
 
 
@@ -39,20 +35,16 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
-      - name: 💾 Cache Dependencies
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: 👀 Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: 🔼 Set up Docker Build
-        uses: docker/setup-buildx-action@v1
+      - uses: docker/setup-buildx-action@v1
 
-      - name: 🛠️ Build Docker images
-        run: |
+      - run: |
           docker build -t portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }}
 
   push_docker_images:
