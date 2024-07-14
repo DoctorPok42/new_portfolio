@@ -95,7 +95,7 @@ const Home = (props: { map_key: string }) => {
             </LargeBox>
           </div>
 
-          {isExpanded && <ProjectsPopup projects={config.projects} setIsExpanded={setIsExpanded} selectedProject={selectedProject} />}
+          {isExpanded && <ProjectsPopup projects={config.projects} setIsExpanded={setIsExpanded} selectedProject={selectedProject} setIsSelectedProject={setSelectedProject} />}
         </div>
       </main>
     </>
