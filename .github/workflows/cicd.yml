@@ -45,7 +45,7 @@ jobs:
       - uses: docker/setup-buildx-action@v1
 
       - run: |
-          docker build -t portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }}
+          docker build -t portfolio:latest . --build-arg MAP_BOX_API_KEY=${{ secrets.MAP_BOX_API_KEY }} --build-arg GIT_TOKEN=${{ secrets.GIT_TOKEN }}
 
   push_docker_images:
     name: 📡 Push Docker images to Docker Hub

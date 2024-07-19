@@ -110,7 +110,7 @@ export const getServerSideProps = async () => {
   let infos = await fetch("https://api.github.com/users/DoctorPok42", {
     method: "GET",
     headers: {
-      "Authorization": `token ${process.env.GITHUB_TOKEN}`,
+      "Authorization": `token ${process.env.GIT_TOKEN}`,
     },
   });
 
