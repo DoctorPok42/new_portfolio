@@ -5,7 +5,7 @@ ARG GIT_TOKEN
 
 ENV MAP_BOX_API_KEY=$MAP_BOX_API_KEY
 ENV GIT_TOKEN=$GIT_TOKEN
-# ENV NODE_ENV=production
+ENV NODE_ENV=production
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ COPY config.json .
 COPY tsconfig.json .
 COPY next.config.mjs .
 
-RUN npm run build --legacy-peer-deps --ignore-scripts
+RUN npm run build --legacy-peer-deps
 
 EXPOSE 9000
 
