@@ -6,7 +6,7 @@ import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import config from "@/../config.json";
 
-const Home = (props: { map_key: string }) => {
+const Home = (props: { map_key: string, data: any }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -52,7 +52,7 @@ const Home = (props: { map_key: string }) => {
             </div>
 
             <div className="partTwo">
-              <NameBox value={config.pseudo} />
+              <NameBox value={config.pseudo} data={props.data} />
 
               <div className="profil">
                 <div className="profilPicture">
@@ -107,9 +107,20 @@ export default Home;
 export const getServerSideProps = async () => {
   const map_key = process.env.MAP_BOX_API_KEY;
 
+  let infos = await fetch("https://api.github.com/users/DoctorPok42", {
+    method: "GET",
+    headers: {
+      "Authorization": `token ${process.env.GIT_TOKEN}`,
+    },
+  });
+
+  let data = await infos.json();
+
+
   return {
     props: {
       map_key,
+      data,
     }
   }
 }

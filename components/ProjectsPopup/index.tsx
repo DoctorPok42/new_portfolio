@@ -39,7 +39,6 @@ const ProjectsPopup = ({
 
   useEffect(() => {
     if (selectedProject !== null) {
-      console.log(selectedProject);
       const project = document.getElementById(`project-${selectedProject}`);
       if (project) {
         project.scrollIntoView();

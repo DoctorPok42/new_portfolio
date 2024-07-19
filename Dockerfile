@@ -1,15 +1,17 @@
 FROM node:alpine
 
 ARG MAP_BOX_API_KEY
+ARG GIT_TOKEN
 
 ENV MAP_BOX_API_KEY=$MAP_BOX_API_KEY
+ENV GIT_TOKEN=$GIT_TOKEN
 ENV NODE_ENV=production
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --ignore-scripts --legacy-peer-deps
+RUN npx pnpm install
 
 COPY src/ ./src/
 COPY public ./public/
@@ -18,9 +20,9 @@ COPY config.json .
 COPY tsconfig.json .
 COPY next.config.mjs .
 
-RUN npm run build --legacy-peer-deps
+RUN npx pnpm build
 
 EXPOSE 9000
 
-CMD ["npm", "run", "start"]
+CMD ["npx", "pnpm", "start"]
 
