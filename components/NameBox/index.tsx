@@ -16,7 +16,6 @@ const NameBox = ({
   value,
   data,
 }: NameBoxProps) => {
-  console.log(data);
   return (
     <div className={styles.NameBox_container}>
       {title && <div className={styles.NameBox_title}>{title} :</div>}
