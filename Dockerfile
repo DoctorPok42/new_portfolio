@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npx pnpm install --ignore-scripts --legacy-peer-deps
+RUN npx pnpm install
 
 COPY src/ ./src/
 COPY public ./public/
@@ -20,9 +20,9 @@ COPY config.json .
 COPY tsconfig.json .
 COPY next.config.mjs .
 
-RUN npx pnpm build --legacy-peer-deps
+RUN npx pnpm build
 
 EXPOSE 9000
 
-CMD ["pnpm", "start"]
+CMD ["npx", "pnpm", "start"]
 
