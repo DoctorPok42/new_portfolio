@@ -65,3 +65,15 @@
     gap: 1em;
   }
 }
+
+@media screen and (max-width: 1090px) {
+  .MainBox_container {
+    .text {
+      .content {
+        h1 {
+          font-size: 5vw;
+        }
+      }
+    }
+  }
+}

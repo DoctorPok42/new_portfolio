@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { useClickAway } from '@uidotdev/usehooks';
-
-import styles from './style.module.scss';
 import Image from 'next/image';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
+import styles from './style.module.scss';
 
 interface ProjectsPopupProps {
   projects: {

@@ -63,3 +63,53 @@
     }
   }
 }
+
+@media screen and (max-width: 1090px) {
+  .LargeBox_container {
+    width: 100%;
+    height: 100%;
+    gap: 0.5em;
+
+    .header {
+      margin-top: 0.5em;
+    }
+
+    .children {
+      h3 {
+        font-size: 1rem;
+      }
+
+      .projects {
+        width: 100%;
+        gap: 0.5em;
+
+        .project {
+          width: calc(50% - 0.5em);
+          height: 100%;
+          border-radius: 12px;
+
+          img {
+            border-radius: 12px;
+            transition: var(--transition);
+          }
+
+          h2 {
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+          }
+        }
+
+        .project:hover {
+          img {
+            filter: brightness(0.8);
+          }
+
+          h2 {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

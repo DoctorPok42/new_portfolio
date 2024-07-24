@@ -16,11 +16,27 @@
     color: var(--gray);
   }
 
-  .NameBox_value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: var(--font-family);
-    color: var(--text-white);
+  .NameBox_infos {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    .NameBox_pseudo {
+      display: none;
+      margin-top: 0.1em;
+      margin-left: -1.4em;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .NameBox_value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: var(--font-family);
+      color: var(--text-white);
+    }
   }
 
   .NameBox_data {
@@ -54,5 +70,11 @@
         align-items: center;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  .NameBox_pseudo {
+    display: flex !important;
   }
 }

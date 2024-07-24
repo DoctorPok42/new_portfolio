@@ -52,7 +52,7 @@ const Home = (props: { map_key: string, data: any }) => {
             </div>
 
             <div className="partTwo">
-              <NameBox value={config.pseudo} data={props.data} />
+              <NameBox value={config.pseudo} data={props.data} img={config.imgUrl} />
 
               <div className="profil">
                 <div className="profilPicture">

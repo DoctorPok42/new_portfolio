@@ -21,7 +21,11 @@ const LargeBox = ({
   setIsExpanded,
 }: LargeBoxProps) => {
   return (
-    <div className={styles.LargeBox_container} style={{ width: size === 'medium' ? "40%" : "60%" }}>
+    <div
+      className={styles.LargeBox_container}
+      style={{ width: size === 'medium' ? "40%" : "60%" }}
+      id={canExpand ? undefined : "about"}
+    >
       <div className={styles.header}>
         <h1>{header.title}</h1>
         <h2

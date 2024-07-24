@@ -167,3 +167,38 @@
     transform: scale(1);
   }
 }
+
+@media screen and (max-width: 1090px) {
+  .ProjectsPopup_container {
+    .ProjectsPopup_content {
+      width: 95%;
+      height: 90%;
+      gap: 0.5em;
+      padding: 0.5em;
+
+      .projects {
+        gap: 1em;
+
+        .project {
+          height: 50%;
+
+          .project_text {
+            h2 {
+              font-size: 1rem;
+            }
+
+            p {
+              font-size: 0.8rem;
+            }
+
+            .project_tags {
+              span {
+                font-size: 0.6rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
