@@ -70,8 +70,19 @@
   .MainBox_container {
     .text {
       .content {
+        display: flex;
+        justify-content: center;
+
         h1 {
           font-size: 5vw;
+        }
+
+        a {
+          width: 15em;
+          right: 50%;
+          transform: translateX(50%);
+          gap: 1em;
+          border-radius: 12px;
         }
       }
     }

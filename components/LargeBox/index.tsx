@@ -24,7 +24,7 @@ const LargeBox = ({
     <div
       className={styles.LargeBox_container}
       style={{ width: size === 'medium' ? "40%" : "60%" }}
-      id={canExpand ? undefined : "about"}
+      id={canExpand ? "projects_container" : "about"}
     >
       <div className={styles.header}>
         <h1>{header.title}</h1>
