@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './style.module.scss';
+import Image from 'next/image';
 
 interface NameBoxProps {
   title?: string;
@@ -9,17 +10,26 @@ interface NameBoxProps {
     public_repos: number;
     followers: number;
   };
+  img?: string;
 }
 
 const NameBox = ({
   title,
   value,
   data,
+  img,
 }: NameBoxProps) => {
+  const isPseudo = !title;
+
   return (
-    <div className={styles.NameBox_container}>
+    <div className={styles.NameBox_container} id={isPseudo ? 'pseudo' : ''}>
       {title && <div className={styles.NameBox_title}>{title} :</div>}
-      <div className={styles.NameBox_value}>{value}</div>
+      <div className={styles.NameBox_infos}>
+        {(isPseudo && img) && <div className={styles.NameBox_pseudo}>
+          <Image src={img} alt="profil" width={65} height={65} />
+        </div>}
+        <div className={styles.NameBox_value}>{value}</div>
+      </div>
 
       {data && (
         <div className={styles.NameBox_data}>
