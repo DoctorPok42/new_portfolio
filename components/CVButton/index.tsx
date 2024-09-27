@@ -14,6 +14,8 @@ const CVButton = ({
     <div
       className={styles.CVButton_container}
       onClick={() => window.open(pathToResume, '_blank')}
+      onKeyDown={() => {}}
+      role='document'
     >
       <h2>CV</h2>
 
