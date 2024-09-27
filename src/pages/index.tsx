@@ -44,6 +44,7 @@ const Home = (props: { map_key: string, data: any }) => {
                 title={config.slogan}
                 buttonLabel={config.contactButton}
                 mail={config.mail}
+                pathToResume={config.pathToResume}
               >
                 {config.infoCard.map((card, index) => (
                   <InfoCard key={index} title={card.title} value={card.value} color={card.color as "green" | "yellow" | "red"} />

@@ -1,0 +1,31 @@
+.CVButton_container {
+  position: absolute;
+  right: 13em;
+  bottom: 0.05em;
+  width: 6em;
+  height: 3.5em;
+  border-radius: 50px;
+  background-color: #333333;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  border: 3px solid #333333;
+  transition: var(--transition);
+
+  h2 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+
+  svg {
+    width: 1.5em;
+    height: 1.5em;
+    fill: var(--text);
+  }
+}
+
+.CVButton_container:hover {
+  border-color: var(--box);
+  box-shadow: 0 0 0 3px #333333;
+}

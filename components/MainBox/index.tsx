@@ -1,5 +1,6 @@
 import React from 'react';
 import { Emoji } from 'emoji-picker-react';
+import CVButton from '../CVButton';
 
 import styles from './style.module.scss';
 
@@ -8,6 +9,7 @@ interface MainBoxProps {
   buttonLabel: string;
   children: React.ReactNode;
   mail: string;
+  pathToResume: string;
 }
 
 const MainBox = ({
@@ -15,6 +17,7 @@ const MainBox = ({
   buttonLabel,
   children,
   mail,
+  pathToResume,
 }: MainBoxProps) => {
   return (
     <div className={styles.MainBox_container}>
@@ -25,6 +28,8 @@ const MainBox = ({
             {buttonLabel}
             <Emoji unified='1f44b' />
           </a>
+
+          {pathToResume && <CVButton pathToResume={pathToResume} />}
         </div>
       </div>
 
