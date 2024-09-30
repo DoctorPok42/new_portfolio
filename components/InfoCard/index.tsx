@@ -6,13 +6,16 @@ interface InfoCardProps {
   title: string;
   value: string;
   color: CSSProperties["backgroundColor"];
+  index: number;
 }
 
 const InfoCard = ({
   title,
   value,
   color,
+  index,
 }: InfoCardProps) => {
+  console.log(index);
   const putRightDate = (date: string) => {
     const dateToCompare = new Date(date);
     const dateNow = new Date();
@@ -24,6 +27,7 @@ const InfoCard = ({
   return (
     <div className={styles.InfoCard_container} style={{
       backgroundColor: color,
+      ["--index" as any]: index,
     }}>
       <div
         className={styles.value}

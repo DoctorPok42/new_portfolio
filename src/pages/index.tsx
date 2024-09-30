@@ -47,7 +47,7 @@ const Home = (props: { map_key: string, data: any }) => {
                 pathToResume={config.pathToResume}
               >
                 {config.infoCard.map((card, index) => (
-                  <InfoCard key={index} title={card.title} value={card.value} color={card.color as "green" | "yellow" | "red"} />
+                  <InfoCard key={index} title={card.title} value={card.value} color={card.color as "green" | "yellow" | "red"} index={index} />
                 ))}
               </MainBox>
             </div>
