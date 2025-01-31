@@ -1,7 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
+import DecryptedText from '../DecryptedText/DecryptedText'
 
 import styles from './style.module.scss';
-import Image from 'next/image';
 
 interface NameBoxProps {
   title?: string;
@@ -28,7 +29,15 @@ const NameBox = ({
         {(isPseudo && img) && <div className={styles.NameBox_pseudo}>
           <Image src={img} alt="profil" width={65} height={65} />
         </div>}
-        <div className={styles.NameBox_value}>{value}</div>
+        <div className={styles.NameBox_value}>
+          <DecryptedText
+            text={value}
+            animateOn="hover"
+            speed={80}
+            revealDirection="start"
+            sequential={true}
+          />
+        </div>
       </div>
 
       {data && (

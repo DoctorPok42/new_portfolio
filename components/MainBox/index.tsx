@@ -1,6 +1,8 @@
 import React from 'react';
 import { Emoji } from 'emoji-picker-react';
 import CVButton from '../CVButton';
+import { useRef } from 'react';
+import VariableProximity from "../VariableProximity/VariableProximity";
 
 import styles from './style.module.scss';
 
@@ -19,11 +21,23 @@ const MainBox = ({
   mail,
   pathToResume,
 }: MainBoxProps) => {
+  const containerRef = useRef(null);
+
   return (
     <div className={styles.MainBox_container}>
       <div className={styles.text}>
         <div className={styles.content}>
-          <h1>{title}</h1>
+          <div ref={containerRef} className={styles.title} style={{position: 'relative'}}>
+            <VariableProximity
+              label={title}
+              className={'variable-proximity-demo'}
+              fromFontVariationSettings="'wght' 950, 'opsz' 9"
+              toFontVariationSettings="'wght' 600, 'opsz' 40"
+              containerRef={containerRef}
+              radius={80}
+              falloff='gaussian'
+            />
+          </div>
           <a href={`mailto:${mail}`}>
             {buttonLabel}
             <Emoji unified='1f44b' />
