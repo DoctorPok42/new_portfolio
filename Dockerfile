@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npx npm install
+RUN npx npm install --force
 
 COPY src/ ./src/
 COPY public ./public/
