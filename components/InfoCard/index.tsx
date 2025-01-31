@@ -15,7 +15,6 @@ const InfoCard = ({
   color,
   index,
 }: InfoCardProps) => {
-  console.log(index);
   const putRightDate = (date: string) => {
     const dateToCompare = new Date(date);
     const dateNow = new Date();

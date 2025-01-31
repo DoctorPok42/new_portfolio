@@ -5,6 +5,7 @@ import { faLinkedinIn, faGithub, faDiscord } from '@fortawesome/free-brands-svg-
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import config from "@/../config.json";
+import BlurText from "../../components/BlurText/BlurText";
 
 const Home = (props: { map_key: string, data: any }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -91,7 +92,13 @@ const Home = (props: { map_key: string, data: any }) => {
 
             <LargeBox header={{ title: "About Me", subtitle: config.about.subtitle }}>
               <h3>
-                {config.about.content}
+                <BlurText
+                  text={config.about.content}
+                  delay={30}
+                  animateBy="words"
+                  direction="top"
+                  onAnimationComplete={() => console.log("done")}
+                />
               </h3>
             </LargeBox>
           </div>

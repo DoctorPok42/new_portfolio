@@ -1,6 +1,6 @@
 {
   "name": "Rémi M",
-  "slogan": "Bringing your ideas to life through web dev",
+  "slogan": "Bringing Your Ideas To Life Through Web Dev",
   "contactButton": "Contact me",
   "mail": "mazatremi@gmail.com",
   "pathToResume": "/cv_remi_mazat.pdf",
@@ -23,6 +23,10 @@
   ],
   "pseudo": "DoctorPok",
   "imgUrl": "/profil.png",
+  "about": {
+    "subtitle": "Who am I?",
+    "content": "I'm Rémi, a web developer based in France. I have been working in the web development industry for over 7 years. I have worked on a wide range of projects, from small websites to large web applications. I am passionate about creating beautiful and functional websites that help businesses grow. I am always looking for new challenges and opportunities to learn and grow as a developer."
+  },
   "projects" : [
     {
       "title": "What's Up",
@@ -67,9 +71,5 @@
       "github": "https://github.com/DoctorPok42/Covid",
       "tags": ["Next.js", "ApexCharts"]
     }
-  ],
-  "about": {
-    "subtitle": "Who am I?",
-    "content": "I'm Rémi, a web developer based in France. I have been working in the web development industry for over 6 years. I have worked on a wide range of projects, from small websites to large web applications. I am passionate about creating beautiful and functional websites that help businesses grow. I am always looking for new challenges and opportunities to learn and grow as a developer."
-  }
+  ]
 }
