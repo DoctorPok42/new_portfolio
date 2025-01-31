@@ -20,7 +20,7 @@ COPY config.json .
 COPY tsconfig.json .
 COPY next.config.mjs .
 
-RUN npx pnpm build
+RUN npx npm run build --force
 
 EXPOSE 9000
 
