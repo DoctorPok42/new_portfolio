@@ -35,7 +35,7 @@ export default function DecryptedText({
   encryptedClassName = "",
   animateOn = "hover",
   ...props
-}: DecryptedTextProps) {
+}: Readonly<DecryptedTextProps>) {
   const [displayText, setDisplayText] = useState<string>(text);
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [isScrambling, setIsScrambling] = useState<boolean>(false);
@@ -46,7 +46,7 @@ export default function DecryptedText({
   const containerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    let interval: number;
+    let interval: NodeJS.Timeout;
     let currentIteration = 0;
 
     const getNextIndex = (revealedSet: Set<number>): number => {
@@ -233,7 +233,7 @@ export default function DecryptedText({
 
           return (
             <span
-              key={index}
+              key={index + char}
               className={isRevealedOrDone ? className : encryptedClassName}
             >
               {char}

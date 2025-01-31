@@ -5,7 +5,6 @@ import { faLinkedinIn, faGithub, faDiscord } from '@fortawesome/free-brands-svg-
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import config from "@/../config.json";
-import DecryptedText from '../../components/DecryptedText/DecryptedText'
 import BlurText from "../../components/BlurText/BlurText";
 
 const Home = (props: { map_key: string, data: any }) => {

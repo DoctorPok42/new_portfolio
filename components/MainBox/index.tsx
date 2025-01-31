@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Emoji } from 'emoji-picker-react';
 import CVButton from '../CVButton';
-import { useRef } from 'react';
 import VariableProximity from "../VariableProximity/VariableProximity";
 
 import styles from './style.module.scss';
