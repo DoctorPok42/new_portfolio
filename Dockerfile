@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npx npm install
 
 COPY src/ ./src/
 COPY public ./public/
@@ -24,4 +24,4 @@ RUN npx pnpm build
 
 EXPOSE 9000
 
-CMD ["npm", "start"]
+CMD ["npx", "npm", "start"]
