@@ -12,7 +12,7 @@ import {
   RefObject,
 } from "react";
 import { motion } from "framer-motion";
-import "./VariableProximity.css";
+import "./style.module.scss";
 
 type Callback = () => void;
 
@@ -181,12 +181,12 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
         style={{ display: "inline", ...style }}
         {...restProps}
       >
-        {words.map((word, wordIndex) => (
+        {words.map((word: any, wordIndex: any) => (
           <span
             key={wordIndex + word}
             style={{ display: "inline-block", whiteSpace: "nowrap" }}
           >
-            {word.split("").map((letter) => {
+            {word.split("").map((letter: any) => {
               const currentLetterIndex = letterIndex++;
               return (
                 <motion.span
