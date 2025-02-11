@@ -1,7 +1,11 @@
 .MapBox_container {
+  width: 100%;
   height: calc(100% - 12em);
   border-radius: 12px;
   overflow: hidden;
+  h1 {
+    z-index: 10000;
+  }
 }
 
 @media screen and (max-width: 1090px) {

@@ -45,7 +45,7 @@
 
       a:hover {
         border-color: var(--box);
-        box-shadow: 0 0 0 3px var(--purple);
+        box-shadow: 0 0 0 3px var(--purple), 0 0 20px 0 var(--purple);
       }
     }
   }

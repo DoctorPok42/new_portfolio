@@ -88,15 +88,17 @@ a {
           gap: 1em;
 
           .profilPicture {
-            width: calc(52% - 0.5em);
             height: 100%;
-            position: relative;
-            border-radius: 22px;
-            overflow: hidden;
+
+            img {
+              height: 100%;
+              object-fit: cover;
+              border-radius: 22px;
+            }
           }
 
           .otherInfos {
-            width: calc(50% - 0.5em);
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 1em;

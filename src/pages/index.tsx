@@ -58,7 +58,7 @@ const Home = (props: { map_key: string, data: any }) => {
 
               <div className="profil">
                 <div className="profilPicture">
-                  <Image src={config.imgUrl} alt="profil" fill sizes="526px" />
+                  <Image src={config.imgUrl} alt="profil" width={350} height={200} />
                 </div>
 
                 <div className="otherInfos">
@@ -94,7 +94,7 @@ const Home = (props: { map_key: string, data: any }) => {
               <h3>
                 <BlurText
                   text={config.about.content}
-                  delay={30}
+                  delay={35}
                   animateBy="words"
                   direction="top"
                   onAnimationComplete={() => console.log("done")}
