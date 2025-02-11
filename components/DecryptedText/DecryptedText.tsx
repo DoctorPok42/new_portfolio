@@ -1,11 +1,28 @@
 /*
-	jsrepo 1.29.1
-	Installed from https://reactbits.dev/ts/tailwind/
-	1-31-2025
+	jsrepo 1.35.1
+	Installed from https://reactbits.dev/ts/default/
+	2-11-2025
 */
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, ReactNode } from "react";
 import { motion } from "framer-motion";
+
+const styles = {
+  wrapper: {
+    display: "inline-block",
+    whiteSpace: "pre-wrap",
+  },
+  srOnly: {
+    position: "absolute" as "absolute",
+    width: "1px",
+    height: "1px",
+    padding: 0,
+    margin: "-1px",
+    overflow: "hidden",
+    clip: "rect(0,0,0,0)",
+    border: 0,
+  },
+};
 
 interface DecryptedTextProps {
   text: string;
@@ -16,10 +33,10 @@ interface DecryptedTextProps {
   useOriginalCharsOnly?: boolean;
   characters?: string;
   className?: string;
-  encryptedClassName?: string;
   parentClassName?: string;
+  encryptedClassName?: string;
   animateOn?: "view" | "hover";
-  [key: string]: any;
+  children?: ReactNode;
 }
 
 export default function DecryptedText({
@@ -35,7 +52,7 @@ export default function DecryptedText({
   encryptedClassName = "",
   animateOn = "hover",
   ...props
-}: Readonly<DecryptedTextProps>) {
+}: DecryptedTextProps) {
   const [displayText, setDisplayText] = useState<string>(text);
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [isScrambling, setIsScrambling] = useState<boolean>(false);
@@ -46,7 +63,7 @@ export default function DecryptedText({
   const containerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: number;
     let currentIteration = 0;
 
     const getNextIndex = (revealedSet: Set<number>): number => {
@@ -69,6 +86,7 @@ export default function DecryptedText({
           ) {
             return nextIndex;
           }
+
           for (let i = 0; i < textLength; i++) {
             if (!revealedSet.has(i)) return i;
           }
@@ -205,7 +223,9 @@ export default function DecryptedText({
     }
 
     return () => {
-      if (currentRef) observer.unobserve(currentRef);
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
     };
   }, [animateOn, hasAnimated]);
 
@@ -219,12 +239,13 @@ export default function DecryptedText({
 
   return (
     <motion.span
+      className={parentClassName}
       ref={containerRef}
-      className={`inline-block whitespace-pre-wrap ${parentClassName}`}
+      style={styles.wrapper}
       {...hoverProps}
       {...props}
     >
-      <span className="sr-only">{displayText}</span>
+      <span style={styles.srOnly}>{displayText}</span>
 
       <span aria-hidden="true">
         {displayText.split("").map((char, index) => {
@@ -233,7 +254,7 @@ export default function DecryptedText({
 
           return (
             <span
-              key={index + char}
+              key={index}
               className={isRevealedOrDone ? className : encryptedClassName}
             >
               {char}

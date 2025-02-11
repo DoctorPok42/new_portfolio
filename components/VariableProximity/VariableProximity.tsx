@@ -1,7 +1,7 @@
 /*
-	jsrepo 1.29.1
+	jsrepo 1.35.1
 	Installed from https://reactbits.dev/ts/default/
-	1-31-2025
+	2-11-2025
 */
 
 import {
@@ -9,10 +9,11 @@ import {
   useMemo,
   useRef,
   useEffect,
+  MutableRefObject,
   RefObject,
 } from "react";
 import { motion } from "framer-motion";
-import "./style.module.scss";
+import "./VariableProximity.css";
 
 type Callback = () => void;
 
@@ -181,12 +182,12 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
         style={{ display: "inline", ...style }}
         {...restProps}
       >
-        {words.map((word: any, wordIndex: any) => (
+        {words.map((word, wordIndex) => (
           <span
-            key={wordIndex + word}
+            key={wordIndex}
             style={{ display: "inline-block", whiteSpace: "nowrap" }}
           >
-            {word.split("").map((letter: any) => {
+            {word.split("").map((letter) => {
               const currentLetterIndex = letterIndex++;
               return (
                 <motion.span

@@ -33,7 +33,7 @@ const NameBox = ({
           <DecryptedText
             text={value}
             animateOn="hover"
-            speed={80}
+            speed={65}
             revealDirection="start"
             sequential={true}
           />
