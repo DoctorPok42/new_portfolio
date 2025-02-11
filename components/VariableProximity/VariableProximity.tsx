@@ -12,7 +12,6 @@ import {
   RefObject,
 } from "react";
 import { motion } from "framer-motion";
-import "./VariableProximity.module.scss";
 
 type Callback = () => void;
 
@@ -210,7 +209,6 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
             )}
           </span>
         ))}
-        <span className="sr-only">{label}</span>
       </span>
     );
   },
