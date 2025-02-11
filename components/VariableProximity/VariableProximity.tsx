@@ -9,11 +9,10 @@ import {
   useMemo,
   useRef,
   useEffect,
-  MutableRefObject,
   RefObject,
 } from "react";
 import { motion } from "framer-motion";
-import "./VariableProximity.css";
+import "./VariableProximity.module.scss";
 
 type Callback = () => void;
 
@@ -182,7 +181,7 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
         style={{ display: "inline", ...style }}
         {...restProps}
       >
-        {words.map((word, wordIndex) => (
+        {words.map((word: string, wordIndex: number) => (
           <span
             key={wordIndex}
             style={{ display: "inline-block", whiteSpace: "nowrap" }}
