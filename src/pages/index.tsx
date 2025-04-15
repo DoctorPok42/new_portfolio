@@ -58,7 +58,7 @@ const Home = (props: { map_key: string, data: any }) => {
 
               <div className="profil">
                 <div className="profilPicture">
-                  <Image src={config.imgUrl} alt="profil" width={350} height={200} />
+                  <Image src={config.imgUrl} alt="profil" width={350} height={200} quality={100} priority style={{ objectFit: 'cover', objectPosition: "center 15%" }} />
                 </div>
 
                 <div className="otherInfos">
