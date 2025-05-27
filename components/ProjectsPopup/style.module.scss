@@ -46,13 +46,14 @@
     }
 
     .projects {
-      width: 99%;
+      width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
       gap: 2em;
-      overflow: hidden;
+      padding: 1em;
       overflow-y: auto;
+      padding-left: 1.5em;
 
       .project {
         height: 70%;
@@ -67,26 +68,47 @@
           position: relative;
 
           img {
-            border-radius: 8px;
+            border-radius: 6px;
           }
 
           .bigimg {
             width: 90%;
             height: 100%;
+            box-shadow: 0 0 10px var(--text-black);
           }
 
           .project_logo {
             position: absolute;
             bottom: -0.5em;
             right: 1.5em;
-            width: 3em;
-            height: 3em;
+            width: 2.8em;
+            height: 2.8em;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
+            border-radius: 12px;
             background-color: var(--text-white);
             box-shadow: 0 0 5px var(--text-black);
+          }
+
+          p {
+            width: 95%;
+            height: 85%;
+            position: absolute;
+            top: 7.5%;
+            right: 7.5%;
+            background-color: var(--text-subtitle);
+            border-radius: 12px;
+            z-index: -1;
+            box-shadow: 0 0 10px var(--text-black);
+          }
+
+          p:nth-child(1) {
+            width: 100%;
+            height: 75%;
+            top: 12.5%;
+            right: 5%;
+            background-color: var(--gray);
           }
         }
 
