@@ -29,6 +29,15 @@
   },
   "projects" : [
     {
+      "title": "Milo",
+      "imgs": ["/projects/milo/0.png"],
+      "logo": "/projects/milo/logo.png",
+      "description": "Milo is a modern ai agent that can interact with other agents and humans. It is built using Next.js, MongoDB, and Socket.io. Milo can be used to create chatbots, virtual assistants, and other AI applications.",
+      "link": "https://milo.doctorpok.io",
+      "github": "https://github.com/Milo-Teams/website",
+      "tags": ["Next.js", "MongoDB", "Socket.io", "AI", "Chatbot", "Voice-Assistant", "Groq", "Agent"]
+    },
+    {
       "title": "What's Up",
       "imgs": ["/projects/whatsup/0.png"],
       "logo": "/projects/whatsup/logo.png",

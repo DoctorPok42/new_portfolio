@@ -58,7 +58,9 @@ const ProjectsPopup = ({
           {projects.map((project, index) => (
             <div key={project.title} className={styles.project} id={`project-${index}`}>
               <div className={styles.project_img}>
+                <p></p>
                 <img className={styles.bigimg} src={project.imgs[0]} alt="project" />
+                <p></p>
 
                 <div className={styles.project_logo}>
                   <Image src={project.logo} alt="logo" width={30} height={30} />
@@ -77,13 +79,13 @@ const ProjectsPopup = ({
                 <div className={styles.project_links}>
                   {project.github && (
                     <a href={project.github} target="_blank">
-                      <FontAwesomeIcon icon={faGithub} width={15} height={15} />
+                      <FontAwesomeIcon icon={faGithub} width={17} height={17} />
                     </a>
                   )}
 
                   {project.link && (
                     <a href={project.link} target="_blank">
-                      <FontAwesomeIcon icon={faExternalLink} width={15} height={15} />
+                      <FontAwesomeIcon icon={faExternalLink} width={17} height={17} />
                     </a>
                   )}
                 </div>
