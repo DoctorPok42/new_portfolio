@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { useClickAway } from '@uidotdev/usehooks';
@@ -28,6 +28,8 @@ const ProjectsPopup = ({
   selectedProject,
   setIsSelectedProject,
 }: ProjectsPopupProps) => {
+  const [projectsWithRotatingImages, setProjectsWithRotatingImages] = useState(projects);
+
   const handleColose = () => {
     setIsExpanded(false);
     setIsSelectedProject(null);
@@ -46,6 +48,28 @@ const ProjectsPopup = ({
     }
   }, [selectedProject]);
 
+  useEffect(() => {
+    const newProjects = projects;
+    setProjectsWithRotatingImages(newProjects);
+  }, [projects]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProjectsWithRotatingImages(prevProjects =>
+        prevProjects.map(project => ({
+          ...project,
+          imgs: [
+            project.imgs[1] ?? project.imgs[0],
+            project.imgs[2] ?? project.imgs[0],
+            project.imgs[0]
+          ]
+        }))
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className={styles.ProjectsPopup_container}>
       <div ref={ref} className={styles.ProjectsPopup_content}>
@@ -55,12 +79,16 @@ const ProjectsPopup = ({
         </div>
 
         <div className={styles.projects}>
-          {projects.map((project, index) => (
-            <div key={project.title} className={styles.project} id={`project-${index}`}>
+          {projectsWithRotatingImages.map((project, index) => (
+            <div
+              key={project.title}
+              className={styles.project}
+              id={`project-${index}`}
+            >
               <div className={styles.project_img}>
-                <p></p>
+                {project.imgs[2] ? <img className={styles.smallimg} src={project.imgs[2]} alt="project" /> : <p></p>}
                 <img className={styles.bigimg} src={project.imgs[0]} alt="project" />
-                <p></p>
+                {project.imgs[1] ? <img className={styles.smallimg} src={project.imgs[1]} alt="project" /> : <p></p>}
 
                 <div className={styles.project_logo}>
                   <Image src={project.logo} alt="logo" width={30} height={30} />
