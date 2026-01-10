@@ -28,6 +28,7 @@ const InfoCard = ({
       backgroundColor: color,
       ["--index" as any]: index,
     }}>
+      {index % 2 === 0 && <div className={styles.decorativeCircle} />}
       <div
         className={styles.value}
         style={{
@@ -47,6 +48,9 @@ const InfoCard = ({
       >
         {title}
       </div>
+      {index < 2 && <div className={styles.decorativeCircle} style={{
+        backgroundColor: color,
+      }} />}
     </div>
   );
 };

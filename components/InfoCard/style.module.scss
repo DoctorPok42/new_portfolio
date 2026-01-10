@@ -1,15 +1,32 @@
 .InfoCard_container {
-  width: 35%;
-  height: 14vw;
-  border-radius: 22px;
+  width: 31%;
+  height: 100%;
+  border-radius: 2.5vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
+  transform: translateY(calc(var(--index) * 50px + 30vh));
   animation: come 0.8s ease forwards;
   animation-delay: calc(0.2s * var(--index));
-  z-index: calc((var(--index) * -1) - 1);
+  z-index: 1;
+  box-shadow: inset 0 0 20px 0 #00000033;
+  transition: var(--transition);
+
+  .decorativeCircle {
+    position: absolute;
+    width: 1.7vw;
+    height: 60%;
+    opacity: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -1.7vw;
+    z-index: -1;
+    animation: circle 0.7s ease forwards;
+    animation-delay: calc(0.5s * var(--index) + 0.6s);
+  }
 
   .value {
     font-size: 3.5vw;
@@ -21,6 +38,24 @@
     font-size: 1.3vw;
     font-weight: 700;
     font-family: var(--font-family);
+  }
+}
+
+.InfoCard_container:hover {
+  box-shadow: inset 0 0 30px 0 #ffffff77;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
 
@@ -39,10 +74,21 @@
   }
 }
 
+@keyframes circle {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) translateY(-50%);
+  }
+
+  100% {
+    opacity: 0.6;
+    transform: translateX(0%) translateY(-50%);
+  }
+}
+
 @keyframes come {
   0% {
     opacity: 0;
-    transform: translateY(calc(var(--index) * 50px + 200px));
   }
 
   100% {

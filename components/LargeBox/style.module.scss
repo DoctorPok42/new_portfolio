@@ -7,9 +7,10 @@
   flex-direction: column;
   align-items: center;
   gap: 1em;
+  z-index: 2;
 
   .header {
-    width: 90%;
+    width: 91%;
     height: 20%;
     display: flex;
     justify-content: space-between;
@@ -34,8 +35,8 @@
   }
 
   .children {
-    width: 90%;
-    height: 70%;
+    width: 91%;
+    height: 28vh;
     display: flex;
     flex-direction: column;
     gap: 1em;

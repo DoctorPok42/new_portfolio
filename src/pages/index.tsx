@@ -82,7 +82,9 @@ const Home = (props: { map_key: string, data: any }) => {
               <div className="projects">
                 {config.projects.map((project, index) => {
                   if (index > 2) return;
-                  return <div key={project.title + index} className="project" onClick={() => handleSelectedProject(index)} onKeyDown={() => 0} role="contentinfo">
+                  return <div key={project.title + index} className="project" style={{
+                    ["--index" as any]: index,
+                  }} onClick={() => handleSelectedProject(index)}>
                     <Image src={project.imgs[0]} alt={project.title} fill sizes="2048px" />
                     <h2>Read More</h2>
                   </div>
@@ -91,13 +93,11 @@ const Home = (props: { map_key: string, data: any }) => {
             </LargeBox>
 
             <LargeBox header={{ title: "About Me", subtitle: config.about.subtitle }}>
-              <h3>
+              <h3 id="test">
                 <BlurText
                   text={config.about.content}
-                  delay={35}
-                  animateBy="words"
-                  direction="top"
-                  onAnimationComplete={() => console.log("done")}
+                  delay={12}
+                  animateBy="letters"
                 />
               </h3>
             </LargeBox>

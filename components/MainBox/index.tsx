@@ -37,10 +37,12 @@ const MainBox = ({
               falloff='gaussian'
             />
           </div>
-          <a href={`mailto:${mail}`}>
-            {buttonLabel}
-            <Emoji unified='1f44b' />
-          </a>
+          <div className={styles.btnContact}>
+            <a href={`mailto:${mail}`}>
+              {buttonLabel}
+              <Emoji unified='1f44b' />
+            </a>
+          </div>
 
           {pathToResume && <CVButton pathToResume={pathToResume} />}
         </div>

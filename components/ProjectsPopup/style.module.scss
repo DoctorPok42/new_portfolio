@@ -1,5 +1,5 @@
 .ProjectsPopup_container {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -69,6 +69,7 @@
 
           img {
             border-radius: 6px;
+            object-fit: cover;
           }
 
           .bigimg {
@@ -156,6 +157,7 @@
             span {
               font-size: 0.8vw;
               color: var(--text-white);
+              box-shadow: 0 0 0 0.5px #999899aa;
               background-color: var(--text-black);
               padding: 0.2em 0.5em;
               border-radius: 4px;
@@ -166,8 +168,22 @@
             display: flex;
             gap: 1em;
 
+            a {
+              display: flex;
+              align-items: center;
+              gap: 0.5em;
+              font-size: 0.8vw;
+              border-radius: 50px;
+              padding: 0.3em 0.5em;
+              color: var(--text-black);
+              background-color: var(--text-white);
+              border: 2px solid transparent;
+              transition: var(--transition);
+            }
+
             a:hover {
-              color: var(--gray);
+              box-shadow: 0 0 0 2px var(--text-white);
+              border: 2px solid var(--box);
             }
           }
         }
