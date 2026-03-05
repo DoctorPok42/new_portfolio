@@ -29,6 +29,14 @@
   },
   "projects" : [
     {
+      "title": "MIP",
+      "imgs": ["/projects/mip/0.png"],
+      "logo": "/projects/mip/logo.png",
+      "description": "Custom protocol for communication between (micro) services and servers. It aims to facilitate seamless interaction and data exchange in a distributed system architecture.",
+      "github": "https://github.com/DoctorPok42/MIP",
+      "tags": ["MQTT", "Protocol", "Microservices", "Server-Communication"]
+    },
+    {
       "title": "Milo",
       "imgs": ["/projects/milo/0.PNG", "/projects/milo/1.PNG", "/projects/milo/2.PNG"],
       "logo": "/projects/milo/logo.png",
