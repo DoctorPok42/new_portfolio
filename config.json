@@ -29,6 +29,15 @@
   },
   "projects" : [
     {
+      "title": "CrabS3",
+      "imgs": ["/projects/crabs3/0.png"],
+      "logo": "/projects/crabs3/logo.png",
+      "description": "Transfert platform for S3 compatible storage. It is designed to be simple, efficient and easy to use. It allows you to transfer files between S3 compatible storage providers with ease. It supports multipart uploads, resumable uploads, and parallel uploads to speed up the transfer process.",
+      "link": "https://crabs3.doctorpok.io",
+      "github": "https://github.com/DoctorPok42/CrabS3",
+      "tags": ["Next.js", "RustFS", "S3-Compatible", "File-Transfer"]
+    },
+    {
       "title": "MIP",
       "imgs": ["/projects/mip/0.png"],
       "logo": "/projects/mip/logo.png",
