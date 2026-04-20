@@ -37,7 +37,7 @@ const Home = (props: { map_key: string, data: any }) => {
         <meta property="twitter:card" content="summary_large_image" />
       </Head>
       <main className="container">
-
+        <p className="background"></p>
         <div className="content">
           <div className="head">
             <div className="partOne">
