@@ -26,31 +26,36 @@
         height: 72%;
       }
 
-      .btnContact {
-        width: 100%;
+      .btn {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
+        gap: 1em;
 
-        a {
-          padding: 0.5em 0.8em;
-          border: 3px solid var(--purple);
-          border-radius: 50em;
+        .btnContact {
           display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5em;
-          background-color: var(--purple);
-          color: var(--text-white);
-          font-size: 2vh;
-          font-weight: 800;
-          font-family: var(--font-family);
-          cursor: pointer;
-          transition: var(--transition);
-        }
+          justify-content: end;
 
-        a:hover {
-          border-color: var(--box);
-          box-shadow: 0 0 0 3px var(--purple), 0 0 500px 100px var(--purple);
+          a {
+            padding: 0.5em 0.8em;
+            border: 3px solid var(--purple);
+            border-radius: 50em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5em;
+            background-color: var(--purple);
+            color: var(--text-white);
+            font-size: 2vh;
+            font-weight: 800;
+            font-family: var(--font-family);
+            cursor: pointer;
+            transition: var(--transition);
+          }
+
+          a:hover {
+            border-color: var(--box);
+            box-shadow: 0 0 0 3px var(--purple), 0 0 500px 100px var(--purple);
+          }
         }
       }
     }

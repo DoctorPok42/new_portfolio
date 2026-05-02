@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 1em;
+  position: relative;
 
   .NameBox_title {
     font-size: 1.5rem;
@@ -28,6 +29,18 @@
 
       img {
         border-radius: 50%;
+      }
+    }
+
+    .NameBox_status {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+      .NameBox_uptime {
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
       }
     }
 
@@ -77,5 +90,42 @@
 @media screen and (max-width: 1090px) {
   .NameBox_pseudo {
     display: flex !important;
+  }
+}
+
+.circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  --shadow-color: transparent;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.up {
+  background-color: #4caf50;
+  --shadow-color: #4caf5055;
+}
+
+.degraded {
+  background-color: #ff9800;
+  --shadow-color: #ff980055;
+}
+
+.down {
+  background-color: #f44336;
+  --shadow-color: #f4433655;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0px 0px var(--shadow-color);
+  }
+
+  80% {
+    box-shadow: 0 0 0px 10px transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0px 0px transparent;
   }
 }

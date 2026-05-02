@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import DecryptedText from '../DecryptedText/DecryptedText'
 
 import styles from './style.module.scss';
@@ -12,6 +13,8 @@ interface NameBoxProps {
     followers: number;
   };
   img?: string;
+  uptime?: string;
+  url?: string;
 }
 
 const NameBox = ({
@@ -19,25 +22,65 @@ const NameBox = ({
   value,
   data,
   img,
+  uptime,
+  url
 }: NameBoxProps) => {
+  const [uptimeStatus, setUptimeStatus] = useState<"up" | "degraded" | "down" | null>(null);
   const isPseudo = !title;
+
+  let uptimeCircleClass = styles.up;
+
+  if (uptimeStatus === "down") {
+    uptimeCircleClass = styles.up;
+  } else if (uptimeStatus === "degraded") {
+    uptimeCircleClass = styles.degraded;
+  }
+
+  useEffect(() => {
+    const checkUptime = async () => {
+      if (uptime) {
+        const data = await fetch('/api/uptime').then(res => res.json()).catch((e) => console.error("Failed to fetch uptime data", e));
+
+        if (data?.heartbeatList) {
+          const allUp = Object.values(data.heartbeatList).every((beats: any) => beats.at(-1)?.status === 1);
+          const allDown = Object.values(data.heartbeatList).every((beats: any) => beats.at(-1)?.status === 0);
+
+          if (allUp) setUptimeStatus("up");
+          else if (allDown) setUptimeStatus("down");
+          else setUptimeStatus("degraded");
+        }
+      }
+    }
+
+    setInterval(checkUptime, 30000);
+    checkUptime();
+  }, [uptime, isPseudo]);
 
   return (
     <div className={styles.NameBox_container} id={isPseudo ? 'pseudo' : ''}>
-      {title && <div className={styles.NameBox_title}>{title} :</div>}
+      {(title && !uptime) && <div className={styles.NameBox_title}>{title} :</div>}
       <div className={styles.NameBox_infos}>
         {(isPseudo && img) && <div className={styles.NameBox_pseudo}>
           <Image src={img} alt="profil" width={65} height={65} />
         </div>}
-        <div className={styles.NameBox_value}>
-          <DecryptedText
-            text={value}
-            animateOn="hover"
-            speed={65}
-            revealDirection="start"
-            sequential={true}
-          />
-        </div>
+        {uptime ? (
+          <Link href={url || ""} target="_blank" className={styles.NameBox_status}>
+            <h2 className={styles.NameBox_title}>{title} :</h2>
+            <div className={styles.NameBox_uptime}>
+              <span className={`${styles.circle} ${uptimeCircleClass}`}></span>
+            </div>
+          </Link>
+        ) : (
+          <div className={styles.NameBox_value}>
+            <DecryptedText
+              text={value}
+              animateOn="hover"
+              speed={65}
+              revealDirection="start"
+              sequential={true}
+            />
+          </div>
+        )}
       </div>
 
       {data && (

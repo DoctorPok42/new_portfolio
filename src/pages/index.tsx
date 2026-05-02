@@ -54,7 +54,7 @@ const Home = (props: { map_key: string, data: any }) => {
             </div>
 
             <div className="partTwo">
-              <NameBox value={config.pseudo} data={props.data} img={config.imgUrl} />
+              <NameBox title="Status" value={config.uptime} data={props.data} {...config.uptime && { uptime: config.uptime, url: config.uptimeUrl }} />
 
               <div className="profil">
                 <div className="profilPicture">
@@ -63,7 +63,7 @@ const Home = (props: { map_key: string, data: any }) => {
 
                 <div className="otherInfos">
                   <NameBox title="Name" value={config.name} />
-                  <MapBox map_key={props.map_key}/>
+                  <MapBox map_key={props.map_key} />
                   <MediaBox
                     icons={[
                       { icon: faLinkedinIn, link: "https://www.linkedin.com/in/remi-mazat/", backgroundColor: "#0077B5" },

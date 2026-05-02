@@ -21,81 +21,144 @@
       "color": "#fe6d79"
     }
   ],
-  "pseudo": "DoctorPok",
+  "uptime": "https://uptime.doctorpok.io/api/status-page/heartbeat/all",
+  "uptimeUrl": "https://uptime.doctorpok.io",
   "imgUrl": "/profil.png",
   "about": {
     "subtitle": "Who am I?",
     "content": "I'm Rémi, a web developer based in France. I have been working in the web development industry for over 8 years. I have worked on a wide range of projects, from small websites to large web applications. I am passionate about creating beautiful and functional websites that help businesses grow. I am always looking for new challenges and opportunities to learn and grow as a developer."
   },
-  "projects" : [
+  "projects": [
     {
       "title": "CrabS3",
-      "imgs": ["/projects/crabs3/0.png"],
+      "imgs": [
+        "/projects/crabs3/0.png"
+      ],
       "logo": "/projects/crabs3/logo.png",
       "description": "Transfert platform for S3 compatible storage. It is designed to be simple, efficient and easy to use. It allows you to transfer files between S3 compatible storage providers with ease. It supports multipart uploads, resumable uploads, and parallel uploads to speed up the transfer process.",
       "link": "https://crabs3.doctorpok.io",
       "github": "https://github.com/DoctorPok42/CrabS3",
-      "tags": ["Next.js", "RustFS", "S3-Compatible", "File-Transfer"]
+      "tags": [
+        "Next.js",
+        "RustFS",
+        "S3-Compatible",
+        "File-Transfer"
+      ]
     },
     {
       "title": "MIP",
-      "imgs": ["/projects/mip/0.png"],
+      "imgs": [
+        "/projects/mip/0.png"
+      ],
       "logo": "/projects/mip/logo.png",
       "description": "Custom protocol for communication between (micro) services and servers. It aims to facilitate seamless interaction and data exchange in a distributed system architecture.",
       "github": "https://github.com/DoctorPok42/MIP",
-      "tags": ["MQTT", "Protocol", "Microservices", "Server-Communication"]
+      "tags": [
+        "MQTT",
+        "Protocol",
+        "Microservices",
+        "Server-Communication"
+      ]
     },
     {
       "title": "Milo",
-      "imgs": ["/projects/milo/0.PNG", "/projects/milo/1.PNG", "/projects/milo/2.PNG"],
+      "imgs": [
+        "/projects/milo/0.PNG",
+        "/projects/milo/1.PNG",
+        "/projects/milo/2.PNG"
+      ],
       "logo": "/projects/milo/logo.png",
       "description": "Milo is a modern ai agent that can interact with other agents and humans. It is built using Next.js, MongoDB, and Socket.io. Milo can be used to create chatbots, virtual assistants, and other AI applications.",
       "link": "https://milo.doctorpok.io",
       "github": "https://github.com/Milo-Teams/website",
-      "tags": ["Next.js", "MongoDB", "Socket.io", "AI", "Chatbot", "Voice-Assistant", "Groq", "Agent"]
+      "tags": [
+        "Next.js",
+        "MongoDB",
+        "Socket.io",
+        "AI",
+        "Chatbot",
+        "Voice-Assistant",
+        "Groq",
+        "Agent"
+      ]
     },
     {
       "title": "What's Up",
-      "imgs": ["/projects/whatsup/0.png"],
+      "imgs": [
+        "/projects/whatsup/0.png"
+      ],
       "logo": "/projects/whatsup/logo.png",
       "description": "This is a WhatsApp clone built using Next.js, MongoDB, and Socket.io. It is a simple chat application that allows users to send and receive encrypted messages in real-time.",
       "link": "https://whatsup.doctorpok.io",
       "github": "https://github.com/DoctorPok42/WhatsUp",
-      "tags": ["Next.js", "MongoDB", "Socket.io", "Twilio", "Real-Time", "WhatsApp-Clone"]
+      "tags": [
+        "Next.js",
+        "MongoDB",
+        "Socket.io",
+        "Twilio",
+        "Real-Time",
+        "WhatsApp-Clone"
+      ]
     },
     {
       "title": "FastDrop",
-      "imgs": ["/projects/fastdrop/0.png"],
+      "imgs": [
+        "/projects/fastdrop/0.png"
+      ],
       "logo": "/projects/fastdrop/logo.png",
       "description": "FastDrop is a web application that allows users to easily transfer files between devices. It uses a peer-to-peer connection, so no files are ever stored on a server. This makes it a secure and private way to share files.",
       "link": "https://fastdrop.doctorpok.io",
       "github": "https://github.com/DoctorPok42/FastDrop",
-      "tags": ["Next.js", "Socket.io", "File-Sharing", "AirDrop-Clone"]
+      "tags": [
+        "Next.js",
+        "Socket.io",
+        "File-Sharing",
+        "AirDrop-Clone"
+      ]
     },
     {
       "title": "Cloud",
-      "imgs": ["/projects/cloud/0.png"],
+      "imgs": [
+        "/projects/cloud/0.png"
+      ],
       "logo": "/projects/cloud/logo.png",
       "description": "This is a cloud storage project! It will help you to store your files in the cloud. You can upload, download, and delete files. You can also create folders.",
       "github": "https://github.com/DoctorPok42/CLoud",
-      "tags": ["Next.js", "SSH2", "File-System", "Google-Drive-Clone"]
+      "tags": [
+        "Next.js",
+        "SSH2",
+        "File-System",
+        "Google-Drive-Clone"
+      ]
     },
     {
       "title": "Monitor",
-      "imgs": ["/projects/monitor/0.png"],
+      "imgs": [
+        "/projects/monitor/0.png"
+      ],
       "logo": "/projects/monitor/logo.png",
       "description": "This is a monitoring project for your server! It will help you to keep an eye on your server and get notified when something goes wrong. It will show you the CPU, RAM, and disk usage of your server. You can also set up alerts to get notified when something goes wrong.",
       "github": "https://github.com/DoctorPok42/Monitor",
-      "tags": ["Next.js", "Socket.io", "Discord-Bot", "ApexCharts"]
+      "tags": [
+        "Next.js",
+        "Socket.io",
+        "Discord-Bot",
+        "ApexCharts"
+      ]
     },
     {
       "title": "Covid",
-      "imgs": ["/projects/covid/0.png"],
+      "imgs": [
+        "/projects/covid/0.png"
+      ],
       "logo": "/projects/covid/logo.png",
       "description": "This is a Covid-19 tracker project! It will help you to keep track of the Covid-19 cases in your country. It will show you the total cases, total deaths, and total recovered cases. You can also see the cases by country.",
       "link": "https://covid.doctorpok.io",
       "github": "https://github.com/DoctorPok42/Covid",
-      "tags": ["Next.js", "ApexCharts"]
+      "tags": [
+        "Next.js",
+        "ApexCharts"
+      ]
     }
   ]
 }

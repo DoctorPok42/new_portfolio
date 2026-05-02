@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -16,20 +17,18 @@ const MediaBox = ({
   return (
     <div className={styles.MediaBox_container}>
       {icons.map((icon, index) => (
-        <div
-          onKeyUp={() => {}}
-          key={index + icon.link}
-          role='feed'
-          className={styles.icon}
-          onClick={() => window.open(icon.link, '_blank')}
-          onMouseEnter={() => setIsHovered(index)}
-          onMouseLeave={() => setIsHovered(-1)}
-          style={{
-            backgroundColor: (isHovered === index || index === 0) ? icon.backgroundColor : 'rgba(155, 155, 155, 0.1)',
-          }}
-        >
-          <FontAwesomeIcon icon={icon.icon} />
-        </div>
+        <Link key={index + icon.link} href={icon.link} target="_blank" className={styles.MediaBox_link}>
+          <div
+            className={styles.icon}
+            onMouseEnter={() => setIsHovered(index)}
+            onMouseLeave={() => setIsHovered(-1)}
+            style={{
+              backgroundColor: (isHovered === index || index === 0) ? icon.backgroundColor : 'rgba(155, 155, 155, 0.1)',
+            }}
+          >
+            <FontAwesomeIcon icon={icon.icon} />
+          </div>
+        </Link>
       ))}
     </div>
   );

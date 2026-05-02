@@ -26,7 +26,7 @@ const MainBox = ({
     <div className={styles.MainBox_container}>
       <div className={styles.text}>
         <div className={styles.content}>
-          <div ref={containerRef} className={styles.title} style={{position: 'relative'}}>
+          <div ref={containerRef} className={styles.title}>
             <VariableProximity
               label={title}
               className={'variable-proximity-demo'}
@@ -37,14 +37,16 @@ const MainBox = ({
               falloff='gaussian'
             />
           </div>
-          <div className={styles.btnContact}>
-            <a href={`mailto:${mail}`}>
-              {buttonLabel}
-              <Emoji unified='1f44b' />
-            </a>
-          </div>
+          <div className={styles.btn}>
+            {pathToResume && <CVButton pathToResume={pathToResume} />}
 
-          {pathToResume && <CVButton pathToResume={pathToResume} />}
+            <div className={styles.btnContact}>
+              <a href={`mailto:${mail}`}>
+                {buttonLabel}
+                <Emoji unified='1f44b' />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 

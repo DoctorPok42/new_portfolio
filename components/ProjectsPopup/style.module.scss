@@ -64,7 +64,6 @@
           position: relative;
           width: 50%;
           height: 100%;
-          object-fit: cover;
           transition: var(--transition);
 
           img {
@@ -210,6 +209,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -219,6 +219,7 @@
   from {
     transform: scale(0.5);
   }
+
   to {
     transform: scale(1);
   }

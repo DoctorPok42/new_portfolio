@@ -1,7 +1,4 @@
 .CVButton_container {
-  position: absolute;
-  right: 13em;
-  bottom: 0.05em;
   width: 6em;
   height: 3.5em;
   border-radius: 50px;
@@ -12,6 +9,7 @@
   cursor: pointer;
   border: 3px solid #333333;
   transition: var(--transition);
+  z-index: 1;
 
   h2 {
     margin: 0;
