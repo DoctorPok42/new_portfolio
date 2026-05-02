@@ -20,6 +20,12 @@ This repo contains a portfolio of my work. But it's also **your portfolio!** You
 
 8. That's it! Your portfolio is ready to go! 🚀
 
+This project use [Doppler](https://www.doppler.com/) to manage secrets.
+
+- You can create a free account and add your secrets there. Then, you can use the Doppler CLI to run your project locally with the [doppler.yaml](./doppler.yaml) file.
+
+- Or you can set the environment variables in a `.env` file in the root of the project. See [.env.example](./.env.example) for more details.
+
 ## Technologies
 
 - [Next.js](https://nextjs.org/)
