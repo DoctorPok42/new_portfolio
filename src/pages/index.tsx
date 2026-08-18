@@ -115,7 +115,7 @@ export default Home;
 export const getServerSideProps = async () => {
   const map_key = process.env.MAP_BOX_API_KEY;
 
-  let infos = await fetch("https://api.github.com/users/DoctorPok42", {
+  let infos = await fetch(config.github, {
     method: "GET",
     headers: {
       "Authorization": `token ${process.env.GIT_TOKEN}`,
