@@ -79,7 +79,6 @@ const ProjectsPopup = ({
         </div>
 
         <div className={styles.projects}>
-          {/* <div className={styles.shadow}>fchgvjhbkjnlk</div> */}
           {projectsWithRotatingImages.map((project, index) => (
             <div
               key={project.title}
@@ -114,10 +113,12 @@ const ProjectsPopup = ({
                   )}
 
                   {project.link && (
-                    <a href={project.link} target="_blank">
-                      <FontAwesomeIcon icon={faExternalLink} width={13} height={13} />
-                      Visit Website
-                    </a>
+                    <div className={styles.project_links}>
+                      <a href={project.link} target="_blank">
+                        <FontAwesomeIcon icon={faExternalLink} width={13} height={13} />
+                        Visit Website
+                      </a>
+                    </div>
                   )}
                 </div>
               </div>

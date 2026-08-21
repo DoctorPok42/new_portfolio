@@ -113,7 +113,7 @@ const Home = (props: { map_key: string, data: any }) => {
 export default Home;
 
 export const getServerSideProps = async () => {
-  const map_key = process.env.MAP_BOX_API_KEY;
+  const map_key = process.env.MAP_BOX_API_KEY || "";
 
   let infos = await fetch(config.github, {
     method: "GET",
