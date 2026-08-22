@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
 
 :root {
   --border-radius: 12px;
@@ -50,13 +50,32 @@ body {
   box-shadow: inset 0 0 100px 20px rgba(0, 0, 0, 0.9);
 }
 
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  will-change: opacity;
+  animation: fadeOverlay .7s ease forwards;
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 1
+  }
+
+  to {
+    opacity: 0
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
   transition: var(--transition);
 }
 
-@keyframes popup {
+@keyframes popupProjet {
   from {
     opacity: 0;
     transform: translateX(-100%);
@@ -104,9 +123,14 @@ a {
           gap: 1em;
 
           .profilPicture {
+            position: relative;
             width: 42.1vh;
             height: 100%;
             flex-shrink: 0;
+            opacity: 0;
+            overflow: hidden;
+            animation: show 1s ease forwards;
+            animation-delay: 4.4s;
 
             img {
               width: 100%;
@@ -116,11 +140,59 @@ a {
             }
           }
 
+          .profilPicture::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--background);
+            border-radius: 2.5vh;
+            animation: popup 1.3s ease forwards;
+            animation-delay: 4.4s;
+          }
+
+          @keyframes popup {
+            from {
+              height: 100%;
+            }
+
+            to {
+              height: 0%;
+            }
+          }
+
+          @keyframes show {
+            from {
+              opacity: 0;
+            }
+
+            to {
+              opacity: 1;
+            }
+          }
+
           .otherInfos {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 1em;
+            opacity: 0;
+            animation: showInfo .5s ease forwards;
+            animation-delay: 5.4s;
+          }
+
+          @keyframes showInfo {
+            from {
+              opacity: 0;
+              transform: translateX(100%);
+            }
+
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
           }
         }
       }
@@ -131,50 +203,88 @@ a {
       display: flex;
       gap: 1em;
 
-      .projects {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        gap: 0.5em;
-        overflow: hidden;
+      .projectsBox {
+        width: 60%;
+        opacity: 0;
+        animation: showProjects .5s ease forwards;
+        animation-delay: 5.9s;
 
-        .project {
+        .projects {
           width: 100%;
-          height: 90%;
-          cursor: pointer;
-          position: relative;
-          opacity: 0;
-          animation: popup 0.7s cubic-bezier(0.17, 1.11, 0.52, 1.45) forwards;
-          animation-delay: calc(0.2s * var(--index) + 1.5s);
-          z-index: calc(2 - var(--index));
+          height: 100%;
+          display: flex;
+          gap: 0.5em;
+          overflow: hidden;
 
-          img {
-            border-radius: 8px;
-            transition: var(--transition);
-            object-fit: cover;
+          .project {
+            width: 100%;
+            height: 90%;
+            cursor: pointer;
+            position: relative;
+            opacity: 0;
+            animation: popupProjet 0.7s cubic-bezier(0.17, 1.11, 0.52, 1.45) forwards;
+            animation-delay: calc(0.2s * var(--index) + 6s);
+            z-index: calc(2 - var(--index));
+
+            img {
+              border-radius: 8px;
+              transition: var(--transition);
+              object-fit: cover;
+            }
+
+            h2 {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 100%;
+              font-size: 1.5vw;
+              text-align: center;
+              font-weight: 700;
+              color: var(--text-white);
+              opacity: 0;
+              transition: var(--transition);
+            }
           }
 
-          h2 {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            font-size: 1.5vw;
-            text-align: center;
-            font-weight: 700;
-            color: var(--text-white);
-            opacity: 0;
-            transition: var(--transition);
+          .project:hover {
+            img {
+              filter: brightness(0.8);
+            }
+
+            h2 {
+              opacity: 1;
+            }
           }
         }
+      }
 
-        .project:hover {
-          img {
-            filter: brightness(0.8);
+      @keyframes showProjects {
+        from {
+          opacity: 0;
+          transform: translateX(-100%);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .aboutBox {
+        width: 40%;
+        opacity: 0;
+        animation: showAbout .5s ease forwards;
+        animation-delay: 6.6s;
+
+        @keyframes showAbout {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
           }
 
-          h2 {
+          to {
             opacity: 1;
+            transform: scale(1);
           }
         }
       }

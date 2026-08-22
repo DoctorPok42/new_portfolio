@@ -9,6 +9,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'weather.doctorpok.io',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 };

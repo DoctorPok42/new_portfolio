@@ -10,7 +10,7 @@
   opacity: 0;
   transform: translateY(calc(var(--index) * 50px + 30vh));
   animation: come 0.8s ease forwards;
-  animation-delay: calc(0.2s * var(--index));
+  animation-delay: calc(0.2s * var(--index) + 2s);
   z-index: 1;
   box-shadow: inset 0 0 20px 0 #00000033;
   transition: var(--transition);
@@ -25,7 +25,7 @@
     right: -1.7vw;
     z-index: -1;
     animation: circle 0.7s ease forwards;
-    animation-delay: calc(0.5s * var(--index) + 0.6s);
+    animation-delay: calc(0.5s * var(--index) + 2.9s);
   }
 
   .value {

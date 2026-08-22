@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { useClickAway } from '@uidotdev/usehooks';
@@ -29,6 +29,12 @@ const ProjectsPopup = ({
   setIsSelectedProject,
 }: ProjectsPopupProps) => {
   const [projectsWithRotatingImages, setProjectsWithRotatingImages] = useState(projects);
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setRotation(r => r + 1), 5000);
+    return () => clearInterval(id);
+  }, []);
 
   const handleColose = () => {
     setIsExpanded(false);
@@ -53,22 +59,6 @@ const ProjectsPopup = ({
     setProjectsWithRotatingImages(newProjects);
   }, [projects]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProjectsWithRotatingImages(prevProjects =>
-        prevProjects.map(project => ({
-          ...project,
-          imgs: [
-            project.imgs[1] ?? project.imgs[0],
-            project.imgs[2] ?? project.imgs[0],
-            project.imgs[0]
-          ]
-        }))
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className={styles.ProjectsPopup_container}>
@@ -79,16 +69,24 @@ const ProjectsPopup = ({
         </div>
 
         <div className={styles.projects}>
-          {projectsWithRotatingImages.map((project, index) => (
+          {projectsWithRotatingImages.map((project, index) => {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            const imgs = useMemo(
+              () => project.imgs.length > 1
+                ? project.imgs.map((_, i) => project.imgs[(i + rotation) % project.imgs.length])
+                : project.imgs,
+              [project.imgs, rotation]
+            );
+            return (
             <div
               key={project.title}
               className={styles.project}
               id={`project-${index}`}
             >
               <div className={styles.project_img}>
-                {project.imgs[2] ? <img className={styles.smallimg} src={project.imgs[2]} alt="project" /> : <p></p>}
-                <img className={styles.bigimg} src={project.imgs[0]} alt="project" />
-                {project.imgs[1] ? <img className={styles.smallimg} src={project.imgs[1]} alt="project" /> : <p></p>}
+                {imgs[2] ? <img className={styles.smallimg} src={imgs[2]} alt="project" decoding='async' loading='lazy' /> : <p></p>}
+                <img className={styles.bigimg} src={imgs[0]} alt="project" decoding='async' loading='lazy' />
+                {imgs[1] ? <img className={styles.smallimg} src={imgs[1]} alt="project" decoding='async' loading='lazy' /> : <p></p>}
 
                 <div className={styles.project_logo}>
                   <Image src={project.logo} alt="logo" width={30} height={30} />
@@ -123,7 +121,7 @@ const ProjectsPopup = ({
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </div>

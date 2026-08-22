@@ -103,6 +103,24 @@
       ]
     },
     {
+      "title": "Weather App",
+      "imgs": [
+        "https://weather.doctorpok.io/api/og?city=Bordeaux"
+      ],
+      "logo": "https://weather.doctorpok.io/icon0.svg",
+      "description": "A Next.js weather platform built on weatherapi.com. Every city gets its own server-rendered, indexable URL (/[city]) carrying full meta tags and a generated social preview image.",
+      "link": "https://weather.doctorpok.io",
+      "github": "https://github.com/DoctorPok42/WeatherApp",
+      "tags": [
+        "Weather",
+        "Forecast",
+        "Next.js",
+        "WeatherAPI",
+        "ApexCharts",
+        "OpenGraph"
+      ]
+    },
+    {
       "title": "FastDrop",
       "imgs": [
         "/projects/fastdrop/0.png"
