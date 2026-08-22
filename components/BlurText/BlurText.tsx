@@ -23,7 +23,7 @@ const BlurText = ({ text, delay = 30, animateBy = "words", start = true, classNa
     return () => io.disconnect();
   }, []);
 
-  const parts = animateBy === "words" ? text.split(" ") : [...text];
+  const parts = animateBy === "words" ? text.split(" ") : text.split("");
 
   return (
     <p ref={ref} className={`${styles.blurText} ${className}`} style={

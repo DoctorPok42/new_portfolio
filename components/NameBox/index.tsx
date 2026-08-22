@@ -15,6 +15,7 @@ interface NameBoxProps {
   img?: string;
   uptime?: string;
   url?: string;
+  className?: string;
 }
 
 const NameBox = ({
@@ -23,7 +24,8 @@ const NameBox = ({
   data,
   img,
   uptime,
-  url
+  url,
+  className = '',
 }: NameBoxProps) => {
   const [uptimeStatus, setUptimeStatus] = useState<"up" | "degraded" | "down" | null>(null);
   const isPseudo = !title;
@@ -57,7 +59,7 @@ const NameBox = ({
   }, [uptime, isPseudo]);
 
   return (
-    <div className={styles.NameBox_container} id={isPseudo ? 'pseudo' : ''}>
+    <div className={`${styles.NameBox_container} ${className}`} id={isPseudo ? 'pseudo' : ''}>
       {(title && !uptime) && <div className={styles.NameBox_title}>{title} :</div>}
       <div className={styles.NameBox_infos}>
         {(isPseudo && img) && <div className={styles.NameBox_pseudo}>

@@ -25,10 +25,12 @@
   margin: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow: hidden;
+@media screen and (min-width: 1091px) {
+
+  html,
+  body {
+    overflow: hidden;
+  }
 }
 
 body {
@@ -258,18 +260,6 @@ a {
         }
       }
 
-      @keyframes showProjects {
-        from {
-          opacity: 0;
-          transform: translateX(-100%);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
       .aboutBox {
         width: 40%;
         opacity: 0;
@@ -294,63 +284,104 @@ a {
 
 @media screen and (max-width: 1090px) {
   .container {
+    width: 100vw;
+    min-height: 100dvh;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    overflow-y: scroll !important;
+
+    .background {
+      background-size: 20px 20px;
+    }
+
     .content {
-      .head {
-        flex-direction: column;
-        position: relative;
+      width: 92%;
+      height: auto;
+      gap: 1rem;
 
-        .partOne,
-        .partTwo {
-          width: 100%;
-        }
+      .head,
+      .partTwo,
+      .profil,
+      .otherInfos,
+      .about {
+        width: 100% !important;
+        display: contents;
+      }
 
-        .partOne {
-          margin-top: 6em;
-          min-height: 50vh;
-        }
+      .statusBox,
+      .profilPicture {
+        display: none;
+      }
 
-        .partTwo {
-          #pseudo {
-            position: absolute;
-            top: 0;
-          }
+      .otherInfos {
+        animation-delay: .9s !important;
+      }
 
-          .profil {
-            flex-direction: column;
-            padding-bottom: 31em;
+      .nameBox {
+        order: 1;
+        opacity: 0;
+      }
 
-            .profilPicture {
-              display: none;
+      .partOne {
+        order: 2;
+        width: 100% !important;
+        height: auto;
+        margin: 0;
+        min-height: 0;
+
+        .partOne_content {
+          width: 100% !important;
+          height: auto;
+          gap: 0.5em;
+          padding: 0.5em;
+
+          .partOne_content_text {
+            h1 {
+              font-size: 1.5rem;
             }
 
-            .otherInfos {
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
+            p {
+              font-size: 0.9rem;
             }
           }
         }
       }
 
-      .about {
-        flex-direction: column;
-        position: relative;
-        margin-top: 1.5em;
+      .projectsBox {
+        order: 3;
+        width: 100% !important;
+        height: auto;
+        animation-delay: 4.5s !important;
 
-        #about {
-          position: absolute;
-          min-width: 100%;
-          height: 10em;
-        }
+        .projects {
+          height: 20vh;
+          min-height: 140px;
+          gap: 0.5rem;
 
-        #projects_container {
-          width: 100% !important;
-          position: absolute;
-          top: 11em;
+          .project {
+            flex: 1 1 0;
+            min-width: 0;
+            height: auto;
+            aspect-ratio: 3 / 4;
+
+            h2 {
+              font-size: 1.05rem;
+            }
+          }
         }
+      }
+
+      .aboutBox {
+        order: 4;
+        width: 100% !important;
+        height: auto;
+        animation-delay: 5s !important;
       }
     }
+  }
+
+  .variable-proximity {
+    font-size: 1.75rem;
   }
 }
 
@@ -370,4 +401,16 @@ a {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@keyframes showProjects {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

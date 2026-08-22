@@ -62,14 +62,19 @@
 @media screen and (max-width: 1090px) {
   .InfoCard_container {
     width: 100%;
-    height: 90%;
+    height: 100%;
+
+    .decorativeCircle {
+      display: none;
+    }
 
     .value {
-      font-size: 5vw;
+      font-size: 1.6rem;
     }
 
     .title {
-      font-size: 2.5vw;
+      font-size: 0.72rem;
+      text-align: center;
     }
   }
 }

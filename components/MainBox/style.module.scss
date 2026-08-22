@@ -87,23 +87,38 @@
 
 @media screen and (max-width: 1090px) {
   .MainBox_container {
-    .text {
-      .content {
-        display: flex;
-        justify-content: center;
+    height: auto;
+    gap: 1rem;
 
-        h1 {
-          font-size: 5vw;
+    .text {
+      height: auto;
+      padding: 1.25rem 0;
+
+      .content {
+        width: 92%;
+        height: auto;
+        gap: 1.25rem;
+
+        .title {
+          height: auto;
         }
 
-        a {
-          width: 15em;
-          right: 50%;
-          transform: translateX(50%);
-          gap: 1em;
-          border-radius: 12px;
+        .btn {
+          width: 100%;
+          flex-direction: column;
+
+          .btnContact a {
+            min-width: 100%;
+            font-size: 0.95rem;
+          }
         }
       }
+    }
+
+    .info {
+      height: 12vh;
+      min-height: 90px;
+      gap: 0.6rem;
     }
   }
 }
