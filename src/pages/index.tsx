@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { InfoCard, LargeBox, MainBox, MapBox, MediaBox, NameBox, ProjectsPopup } from "../../components";
+import { InfoCard, LargeBox, MainBox, MediaBox, NameBox, ProjectsPopup } from "../../components";
 import { faLinkedinIn, faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import config from "@/../config.json";
 import BlurText from "../../components/BlurText/BlurText";
+import dynamic from "next/dynamic";
+
+const MapBox = dynamic(() => import("../../components/MapBox"), {
+  ssr: false,
+  loading: () => <div className="mapSkeleton" />,
+});
 
 const Home = (props: { map_key: string, data: any }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [introDone, setIntroDone] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIntroDone(true), 6600);
+    return () => clearTimeout(t);
+  }, []);
 
   const handleSelectedProject = (index: number) => {
     setSelectedProject(index);
@@ -48,21 +60,23 @@ const Home = (props: { map_key: string, data: any }) => {
                 pathToResume={config.pathToResume}
               >
                 {config.infoCard.map((card, index) => (
-                  <InfoCard key={index} title={card.title} value={card.value} color={card.color as "green" | "yellow" | "red"} index={index} />
+                  <InfoCard key={"info-card-" + index} title={card.title} value={card.value} color={card.color as "green" | "yellow" | "red"} index={index} />
                 ))}
               </MainBox>
             </div>
 
             <div className="partTwo">
-              <NameBox title="Status" value={config.uptime} data={props.data} {...config.uptime && { uptime: config.uptime, url: config.uptimeUrl }} />
+              <NameBox title="Status" className="statusBox" value={config.uptime} data={props.data} {...config.uptime && { uptime: config.uptime, url: config.uptimeUrl }} />
 
               <div className="profil">
                 <div className="profilPicture">
-                  <Image src={config.imgUrl} alt="profil" width={350} height={200} quality={100} priority style={{ objectFit: 'cover', objectPosition: "center 15%" }} />
+                  <Image src={config.imgUrl} alt="profil" width={350} height={200} quality={100} priority sizes="(max-width: 1090px) 90vw, 20vw" style={{
+                    objectFit: "cover", objectPosition: "center 15%",
+                  }} />
                 </div>
 
                 <div className="otherInfos">
-                  <NameBox title="Name" value={config.name} />
+                  <NameBox title="Name" className="nameBox" value={config.name} />
                   <MapBox map_key={props.map_key} />
                   <MediaBox
                     icons={[
@@ -78,29 +92,35 @@ const Home = (props: { map_key: string, data: any }) => {
           </div>
 
           <div className="about">
-            <LargeBox header={{ title: "Projects", subtitle: "See all" }} canExpand size="large" setIsExpanded={setIsExpanded}>
-              <div className="projects">
-                {config.projects.map((project, index) => {
-                  if (index > 2) return;
-                  return <div key={project.title + index} className="project" style={{
-                    ["--index" as any]: index,
-                  }} onClick={() => handleSelectedProject(index)}>
-                    <Image src={project.imgs[0]} alt={project.title} fill sizes="2048px" />
-                    <h2>Read More</h2>
-                  </div>
-                })}
-              </div>
-            </LargeBox>
+            <div className="projectsBox">
+              <LargeBox header={{ title: "Projects", subtitle: "See all" }} canExpand size="large" setIsExpanded={setIsExpanded}>
+                <div className="projects">
+                  {config.projects.slice(0, 3).map((project, index) => {
+                    return <div key={project.title + index} className="project" style={{
+                      ["--index" as any]: index,
+                    }} onClick={() => handleSelectedProject(index)}>
+                      <Image
+                        src={project.imgs[0]}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 1090px) 90vw, 20vw"
+                        quality={70}
+                        priority
+                      />
+                      <h2>Read More</h2>
+                    </div>
+                  })}
+                </div>
+              </LargeBox>
+            </div>
 
-            <LargeBox header={{ title: "About Me", subtitle: config.about.subtitle }}>
-              <h3 id="test">
-                <BlurText
-                  text={config.about.content}
-                  delay={12}
-                  animateBy="letters"
-                />
-              </h3>
-            </LargeBox>
+            <div className="aboutBox">
+              <LargeBox header={{ title: "About Me", subtitle: config.about.subtitle }}>
+                <h3 id="test">
+                  <BlurText text={config.about.content} delay={25} animateBy="words" start={introDone} />
+                </h3>
+              </LargeBox>
+            </div>
           </div>
 
           {isExpanded && <ProjectsPopup projects={config.projects} setIsExpanded={setIsExpanded} selectedProject={selectedProject} setIsSelectedProject={setSelectedProject} />}
@@ -112,13 +132,16 @@ const Home = (props: { map_key: string, data: any }) => {
 
 export default Home;
 
-export const getServerSideProps = async () => {
-  const map_key = process.env.MAP_BOX_API_KEY;
+export const getStaticProps = async () => {
+  const map_key = process.env.MAP_BOX_API_KEY || "";
 
   let infos = await fetch(config.github, {
     method: "GET",
     headers: {
       "Authorization": `token ${process.env.GIT_TOKEN}`,
+    },
+    next: {
+      revalidate: 3600
     },
   });
 

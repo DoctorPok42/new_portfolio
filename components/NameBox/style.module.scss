@@ -9,6 +9,9 @@
   align-items: center;
   gap: 1em;
   position: relative;
+  opacity: 0;
+  animation: slideIn 0.7s ease forwards;
+  animation-delay: 4s;
 
   .NameBox_title {
     font-size: 1.5rem;
@@ -84,6 +87,18 @@
         align-items: center;
       }
     }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

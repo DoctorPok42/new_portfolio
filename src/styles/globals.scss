@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
 
 :root {
   --border-radius: 12px;
@@ -25,10 +25,12 @@
   margin: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow: hidden;
+@media screen and (min-width: 1091px) {
+
+  html,
+  body {
+    overflow: hidden;
+  }
 }
 
 body {
@@ -45,8 +47,28 @@ body {
   height: 100vh;
   opacity: 0.5;
   z-index: -1;
-  background-image: radial-gradient(circle, #4f4f4f 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: linear-gradient(to right, #2F2F2F 1px, transparent 1px), linear-gradient(to bottom, #2F2F2F 1px, transparent 1px);
+  background-size: 28px 28px;
+  box-shadow: inset 0 0 100px 20px rgba(0, 0, 0, 0.9);
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  will-change: opacity;
+  animation: fadeOverlay .7s ease forwards;
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 1
+  }
+
+  to {
+    opacity: 0
+  }
 }
 
 a {
@@ -55,11 +77,12 @@ a {
   transition: var(--transition);
 }
 
-@keyframes popup {
+@keyframes popupProjet {
   from {
     opacity: 0;
     transform: translateX(-100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -102,9 +125,14 @@ a {
           gap: 1em;
 
           .profilPicture {
+            position: relative;
             width: 42.1vh;
             height: 100%;
             flex-shrink: 0;
+            opacity: 0;
+            overflow: hidden;
+            animation: show 1s ease forwards;
+            animation-delay: 4.4s;
 
             img {
               width: 100%;
@@ -114,11 +142,59 @@ a {
             }
           }
 
+          .profilPicture::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--background);
+            border-radius: 2.5vh;
+            animation: popup 1.3s ease forwards;
+            animation-delay: 4.4s;
+          }
+
+          @keyframes popup {
+            from {
+              height: 100%;
+            }
+
+            to {
+              height: 0%;
+            }
+          }
+
+          @keyframes show {
+            from {
+              opacity: 0;
+            }
+
+            to {
+              opacity: 1;
+            }
+          }
+
           .otherInfos {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 1em;
+            opacity: 0;
+            animation: showInfo .5s ease forwards;
+            animation-delay: 5.4s;
+          }
+
+          @keyframes showInfo {
+            from {
+              opacity: 0;
+              transform: translateX(100%);
+            }
+
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
           }
         }
       }
@@ -129,50 +205,76 @@ a {
       display: flex;
       gap: 1em;
 
-      .projects {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        gap: 0.5em;
-        overflow: hidden;
+      .projectsBox {
+        width: 60%;
+        opacity: 0;
+        animation: showProjects .5s ease forwards;
+        animation-delay: 5.9s;
 
-        .project {
+        .projects {
           width: 100%;
-          height: 90%;
-          cursor: pointer;
-          position: relative;
-          opacity: 0;
-          animation: popup 0.7s cubic-bezier(0.17, 1.11, 0.52, 1.45) forwards;
-          animation-delay: calc(0.2s * var(--index) + 1.5s);
-          z-index: calc(2 - var(--index));
+          height: 100%;
+          display: flex;
+          gap: 0.5em;
+          overflow: hidden;
 
-          img {
-            border-radius: 8px;
-            transition: var(--transition);
-            object-fit: cover;
+          .project {
+            width: 100%;
+            height: 90%;
+            cursor: pointer;
+            position: relative;
+            opacity: 0;
+            animation: popupProjet 0.7s cubic-bezier(0.17, 1.11, 0.52, 1.45) forwards;
+            animation-delay: calc(0.2s * var(--index) + 6s);
+            z-index: calc(2 - var(--index));
+
+            img {
+              border-radius: 8px;
+              transition: var(--transition);
+              object-fit: cover;
+            }
+
+            h2 {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 100%;
+              font-size: 1.5vw;
+              text-align: center;
+              font-weight: 700;
+              color: var(--text-white);
+              opacity: 0;
+              transition: var(--transition);
+            }
           }
 
-          h2 {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            font-size: 1.5vw;
-            text-align: center;
-            font-weight: 700;
-            color: var(--text-white);
-            opacity: 0;
-            transition: var(--transition);
+          .project:hover {
+            img {
+              filter: brightness(0.8);
+            }
+
+            h2 {
+              opacity: 1;
+            }
           }
         }
+      }
 
-        .project:hover {
-          img {
-            filter: brightness(0.8);
+      .aboutBox {
+        width: 40%;
+        opacity: 0;
+        animation: showAbout .5s ease forwards;
+        animation-delay: 6.6s;
+
+        @keyframes showAbout {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
           }
 
-          h2 {
+          to {
             opacity: 1;
+            transform: scale(1);
           }
         }
       }
@@ -182,63 +284,104 @@ a {
 
 @media screen and (max-width: 1090px) {
   .container {
+    width: 100vw;
+    min-height: 100dvh;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    overflow-y: scroll !important;
+
+    .background {
+      background-size: 20px 20px;
+    }
+
     .content {
-      .head {
-        flex-direction: column;
-        position: relative;
+      width: 92%;
+      height: auto;
+      gap: 1rem;
 
-        .partOne,
-        .partTwo {
-          width: 100%;
-        }
+      .head,
+      .partTwo,
+      .profil,
+      .otherInfos,
+      .about {
+        width: 100% !important;
+        display: contents;
+      }
 
-        .partOne {
-          margin-top: 6em;
-          min-height: 50vh;
-        }
+      .statusBox,
+      .profilPicture {
+        display: none;
+      }
 
-        .partTwo {
-          #pseudo {
-            position: absolute;
-            top: 0;
-          }
+      .otherInfos {
+        animation-delay: .9s !important;
+      }
 
-          .profil {
-            flex-direction: column;
-            padding-bottom: 31em;
+      .nameBox {
+        order: 1;
+        opacity: 0;
+      }
 
-            .profilPicture {
-              display: none;
+      .partOne {
+        order: 2;
+        width: 100% !important;
+        height: auto;
+        margin: 0;
+        min-height: 0;
+
+        .partOne_content {
+          width: 100% !important;
+          height: auto;
+          gap: 0.5em;
+          padding: 0.5em;
+
+          .partOne_content_text {
+            h1 {
+              font-size: 1.5rem;
             }
 
-            .otherInfos {
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
+            p {
+              font-size: 0.9rem;
             }
           }
         }
       }
 
-      .about {
-        flex-direction: column;
-        position: relative;
-        margin-top: 1.5em;
+      .projectsBox {
+        order: 3;
+        width: 100% !important;
+        height: auto;
+        animation-delay: 4.5s !important;
 
-        #about {
-          position: absolute;
-          min-width: 100%;
-          height: 10em;
-        }
+        .projects {
+          height: 20vh;
+          min-height: 140px;
+          gap: 0.5rem;
 
-        #projects_container {
-          width: 100% !important;
-          position: absolute;
-          top: 11em;
+          .project {
+            flex: 1 1 0;
+            min-width: 0;
+            height: auto;
+            aspect-ratio: 3 / 4;
+
+            h2 {
+              font-size: 1.05rem;
+            }
+          }
         }
+      }
+
+      .aboutBox {
+        order: 4;
+        width: 100% !important;
+        height: auto;
+        animation-delay: 5s !important;
       }
     }
+  }
+
+  .variable-proximity {
+    font-size: 1.75rem;
   }
 }
 
@@ -258,4 +401,16 @@ a {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@keyframes showProjects {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

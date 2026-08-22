@@ -2,17 +2,17 @@
   width: 100%;
   height: 5em;
   padding: 0 0.5em;
-  border-radius: 22px;
+  border-radius: 50px;
   background-color: var(--box);
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-evenly;
   gap: 1em;
 
   .icon {
-    width: 4.3em;
+    width: 5.615em;
     height: 4.3em;
-    border-radius: 50%;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,8 +20,8 @@
     transition: var(--transition);
 
     svg {
-      width: 50%;
-      height: 50%;
+      width: 40%;
+      height: 40%;
       fill: var(--text-white);
     }
   }
@@ -29,7 +29,29 @@
 
 @media screen and (max-width: 1090px) {
   .MediaBox_container {
-    margin-top: 43vh;
-    width: 50vw;
+    order: 5;
+    margin-top: 0;
+    width: 100%;
+    height: 4.5em;
+    opacity: 0;
+    animation: showMedia 0.5s ease forwards;
+    animation-delay: 3.3s !important;
+
+    .icon {
+      width: 4.4em;
+      height: 3.4em;
+    }
+  }
+}
+
+@keyframes showMedia {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

@@ -63,7 +63,7 @@
         .project_img {
           position: relative;
           width: 50%;
-          height: 100%;
+          height: 80%;
           transition: var(--transition);
 
           img {
@@ -175,6 +175,7 @@
               border-radius: 50px;
               padding: 0.3em 0.5em;
               color: var(--text-black);
+              font-weight: 700;
               background-color: var(--text-white);
               border: 2px solid transparent;
               transition: var(--transition);
@@ -237,7 +238,12 @@
         gap: 1em;
 
         .project {
+          margin-bottom: 3em;
           height: 50%;
+
+          .project_img {
+            display: none;
+          }
 
           .project_text {
             h2 {
@@ -249,8 +255,16 @@
             }
 
             .project_tags {
+              flex-wrap: wrap;
               span {
-                font-size: 0.6rem;
+                font-size: 0.8rem;
+              }
+            }
+
+            .project_links {
+              a {
+                font-size: 0.8rem;
+                padding: 0.2em 0.4em;
               }
             }
           }
