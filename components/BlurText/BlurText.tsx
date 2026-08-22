@@ -33,7 +33,7 @@ const BlurText = ({ text, delay = 30, animateBy = "words", start = true, classNa
       }
     }>
       {parts.map((part, i) => (
-        <span key={i} style={{ ["--i" as any]: i, ["--step" as any]: `${delay}ms` }}>
+        <span key={i + part} style={{ ["--i" as any]: i, ["--step" as any]: `${delay}ms` }}>
           {part}{animateBy === "words" && i < parts.length - 1 ? "\u00A0" : ""}
         </span>
       ))}

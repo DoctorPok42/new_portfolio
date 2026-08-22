@@ -28,6 +28,11 @@ const LargeBox = ({
       <div className={styles.header}>
         <h1>{header.title}</h1>
         <h2
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              canExpand && setIsExpanded?.(true);
+            }
+          }}
           id={canExpand ? styles.expand : undefined}
           onClick={() => canExpand && setIsExpanded?.(true)}
         >
