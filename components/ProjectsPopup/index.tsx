@@ -17,7 +17,7 @@ interface ProjectsPopupProps {
     github?: string;
     tags: string[];
     year?: number;
-    status?: "live" | "archived" | "wip";
+    status?: string;
   }[];
   setIsExpanded(isExpanded: boolean): void;
   selectedProject: number | null;
@@ -172,7 +172,7 @@ const ProjectsPopup = ({
 
                     {project.imgs.length > 1 && <div className={styles.project_imgs}>
                       {project.imgs.map((_, i) => (
-                        <span key={i} className={styles.dot} style={{
+                        <span key={i + project.title} className={styles.dot} style={{
                           backgroundColor: i === rotation % project.imgs.length ? "#fff" : "#6a6a6a",
                         }}></span>
                       ))}
