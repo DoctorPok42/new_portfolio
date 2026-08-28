@@ -58,7 +58,7 @@ body {
   inset: 0;
   background: #000;
   will-change: opacity;
-  animation: fadeOverlay .7s ease forwards;
+  animation: fadeOverlay .8s ease forwards;
 }
 
 @keyframes fadeOverlay {
@@ -106,6 +106,7 @@ a {
       height: 60%;
       display: flex;
       gap: 1em;
+      transition: var(--transition);
 
       .partOne,
       .partTwo {
@@ -204,6 +205,7 @@ a {
       height: 40%;
       display: flex;
       gap: 1em;
+      transition: var(--transition);
 
       .projectsBox {
         width: 60%;

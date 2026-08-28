@@ -45,7 +45,9 @@
         "File-Sharing",
         "Self-Hosted",
         "Transfer-Platform"
-      ]
+      ],
+      "year": 2026,
+      "status": "live"
     },
     {
       "title": "MIP",
@@ -60,7 +62,9 @@
         "Protocol",
         "Microservices",
         "Server-Communication"
-      ]
+      ],
+      "year": 2026,
+      "status": "wip"
     },
     {
       "title": "Milo",
@@ -82,7 +86,9 @@
         "Voice-Assistant",
         "Groq",
         "Agent"
-      ]
+      ],
+      "year": 2025,
+      "status": "live"
     },
     {
       "title": "What's Up",
@@ -100,7 +106,9 @@
         "Twilio",
         "Real-Time",
         "WhatsApp-Clone"
-      ]
+      ],
+      "year": 2024,
+      "status": "live"
     },
     {
       "title": "Weather App",
@@ -118,7 +126,9 @@
         "WeatherAPI",
         "ApexCharts",
         "OpenGraph"
-      ]
+      ],
+      "year": 2024,
+      "status": "live"
     },
     {
       "title": "FastDrop",
@@ -134,7 +144,9 @@
         "Socket.io",
         "File-Sharing",
         "AirDrop-Clone"
-      ]
+      ],
+      "year": 2024,
+      "status": "wip"
     },
     {
       "title": "Cloud",
@@ -149,7 +161,9 @@
         "SSH2",
         "File-System",
         "Google-Drive-Clone"
-      ]
+      ],
+      "year": 2023,
+      "status": "archived"
     },
     {
       "title": "Monitor",
@@ -164,7 +178,9 @@
         "Socket.io",
         "Discord-Bot",
         "ApexCharts"
-      ]
+      ],
+      "year": 2023,
+      "status": "live"
     },
     {
       "title": "Covid",
@@ -178,7 +194,9 @@
       "tags": [
         "Next.js",
         "ApexCharts"
-      ]
+      ],
+      "year": 2023,
+      "status": "live"
     }
   ]
 }

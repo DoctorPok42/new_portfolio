@@ -98,7 +98,7 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
             .map((s) => s.trim())
             .map((s) => {
               const [name, value] = s.split(" ");
-              return [name.replace(/['"]/g, ""), parseFloat(value)];
+              return [name.replace(/['"]/g, ""), Number.parseFloat(value)];
             }),
         );
 
@@ -117,7 +117,7 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
       y1: number,
       x2: number,
       y2: number,
-    ) => Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    ) => Math.hypot((x2 - x1), (y2 - y1));
 
     const calculateFalloff = (distance: number) => {
       const norm = Math.min(Math.max(1 - distance / radius, 0), 1);
@@ -182,7 +182,7 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
       >
         {words.map((word: string, wordIndex: number) => (
           <span
-            key={wordIndex}
+            key={wordIndex + word}
             style={{ display: "inline-block", whiteSpace: "nowrap" }}
           >
             {word.split("").map((letter) => {

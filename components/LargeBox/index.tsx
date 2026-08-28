@@ -10,7 +10,7 @@ interface LargeBoxProps {
   size?: 'medium' | 'large';
   canExpand?: boolean;
   children?: React.ReactNode;
-  setIsExpanded? (isExpanded: boolean): void;
+  setIsExpanded?(isExpanded: boolean): void;
 }
 
 const LargeBox = ({

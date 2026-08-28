@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npx npm install --force
+RUN npx npm install --force --ignore-scripts
 
 COPY src/ ./src/
 COPY public ./public/
@@ -20,8 +20,8 @@ COPY config.json .
 COPY tsconfig.json .
 COPY next.config.mjs .
 
-RUN npx npm run build --force
+RUN npx npm run build --force --ignore-scripts
 
 EXPOSE 9000
 
-CMD ["npx", "npm", "start"]
+CMD ["npx", "npm", "start", "--ignore-scripts"]

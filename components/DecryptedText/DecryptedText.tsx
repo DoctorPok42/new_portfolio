@@ -1,7 +1,7 @@
 /*
-	jsrepo 1.35.1
-	Installed from https://reactbits.dev/ts/default/
-	2-11-2025
+  jsrepo 1.35.1
+  Installed from https://reactbits.dev/ts/default/
+  2-11-2025
 */
 
 import { useEffect, useState, useRef, ReactNode } from "react";
@@ -52,7 +52,7 @@ export default function DecryptedText({
   encryptedClassName = "",
   animateOn = "hover",
   ...props
-}: DecryptedTextProps) {
+}: Readonly<DecryptedTextProps>) {
   const [displayText, setDisplayText] = useState<string>(text);
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [isScrambling, setIsScrambling] = useState<boolean>(false);
@@ -232,9 +232,9 @@ export default function DecryptedText({
   const hoverProps =
     animateOn === "hover"
       ? {
-          onMouseEnter: () => setIsHovering(true),
-          onMouseLeave: () => setIsHovering(false),
-        }
+        onMouseEnter: () => setIsHovering(true),
+        onMouseLeave: () => setIsHovering(false),
+      }
       : {};
 
   return (
@@ -254,7 +254,7 @@ export default function DecryptedText({
 
           return (
             <span
-              key={index}
+              key={index + char}
               className={isRevealedOrDone ? className : encryptedClassName}
             >
               {char}

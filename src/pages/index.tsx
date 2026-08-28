@@ -51,7 +51,9 @@ const Home = (props: { map_key: string, data: any }) => {
       <main className="container">
         <p className="background"></p>
         <div className="content">
-          <div className="head">
+          <div className="head" style={{
+            ...isExpanded && { filter: "blur(5px)" }
+          }}>
             <div className="partOne">
               <MainBox
                 title={config.slogan}
@@ -91,7 +93,9 @@ const Home = (props: { map_key: string, data: any }) => {
             </div>
           </div>
 
-          <div className="about">
+          <div className="about" style={{
+            ...isExpanded && { filter: "blur(5px)" }
+          }}>
             <div className="projectsBox">
               <LargeBox header={{ title: "Projects", subtitle: "See all" }} canExpand size="large" setIsExpanded={setIsExpanded}>
                 <div className="projects">
