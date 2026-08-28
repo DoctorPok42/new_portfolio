@@ -77,8 +77,9 @@ const NameBox = ({
             <DecryptedText
               text={value}
               animateOn="hover"
-              speed={65}
-              revealDirection="start"
+              speed={100}
+              revealDirection="end"
+              characters='@#!?'
               sequential={true}
             />
           </div>
